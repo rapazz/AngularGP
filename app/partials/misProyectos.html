@@ -1,10 +1,29 @@
-<div>
-{{message}}
-    <table cellspacing="0" id="tech-companies" data-data-table="" data="arrProyectos">
+ <div class="row">
+          <div class="col-lg-12">
+            <h1>Mis Proyectos <small>Proyectos en ejecución</small></h1>
+
+  <ol class="breadcrumb">
+              <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <li class="active"><i class="fa fa-table"></i> Mis Proyectos</li>
+            </ol>
+  </div>
+        </div><!-- /.row -->
+
+ <div class="row">
+          <div class="col-lg-12">
+
+    <table id="tblMisproyectos" class="table table-bordered table-hover table-striped tablesorter" data-data-table="" data="arrProyectos">
     <thead>
-<th>uno</th>
-<th>dos </th>
-<th>tres</th>
+<th ># <i class="fa fa-sort"></i></th>
+<th>Nombre Proyecto <i class="fa fa-sort"></i> </th>
+<th>Tipo <i class="fa fa-sort"></i></th>
+<th>Empresa <i class="fa fa-sort"></i></th>
+<th>Fecha Termino <i class="fa fa-sort"></i></th>
+<th>One Off </th>
+<th>OnGoing </th>
+<th>Salud Proyecto <i class="fa fa-sort"></i></th>
+<th>Status<i class="fa fa-sort"></i></th>
+<th>Controles</th>
 </thead>
 <tbody>
 <tr ng-repeat="row in arrProyectos">
@@ -15,10 +34,12 @@
 <td>{{row.fechaTermino}}</td>
 <td>{{row.costoOneOff}}</td>
 <td>{{row.costosOneGoing}}</td>
-<td>{{row.saludProyecto}}</td>
+<td ><span ng-class='{"label label-warning":row.saludProyecto=="En Alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
 <td>{{row.statusProyecto}}</td>
+<td> <i ng-click="openDialog()" class="fa fa-paperclip  fa-lg"> &nbsp</i><i class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar"></i></td>
 	</tr>
 </tbody>
     </table> 
-
+</div> 
+</div> 
 </div> 

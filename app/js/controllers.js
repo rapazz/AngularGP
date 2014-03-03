@@ -2,18 +2,38 @@
 
 /* Controllers */
 
-angular.module('proyectosAppControllers', []).
-  controller('MisproyectosCtrl', ['$scope','$http',function($scope,$http) {
+angular.module('proyectosAppControllers', ['ui.bootstrap']).
+  controller('MisproyectosCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
 $http.get('json/proyectos.json').success(function(data) {
      $scope.arrProyectos = data;
+ 
+     $scope.openDialog=function(){
+
+   var modalInstance = $modal.open({
+      templateUrl: 'partials/dialog_template.html',
+      controller: 'ModalInstanceCtrl',
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+     }
    });
 
-
-
-
-
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('ModalInstanceCtrl', ['$scope','$modalInstance',function($scope, $modalInstance) {
+
+
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 
   }])
   .controller('mainController', ['$scope',function($scope) {
@@ -23,3 +43,5 @@ $http.get('json/proyectos.json').success(function(data) {
 
 
   }]);
+
+
