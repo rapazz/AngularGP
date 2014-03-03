@@ -1,0 +1,7 @@
+[{"ID":1,	"nombreProyecto":"Proyecto 1", "tipoProyecto": "SIA","Empresa" :"KCC" ,"fechaTermino": "23/04/2014","costoOneOff":1500,"costosOneGoing":1200, "saludProyecto":"En Alerta", "statusProyecto":"Desarrollo"
+},
+{"ID":2,	"nombreProyecto":"Proyecto 3", "tipoProyecto": "NO SIA","Empresa" :"DCC" ,"fechaTermino": "23/03/2014","costoOneOff":1200,"costosOneGoing":1800, "saludProyecto":"Saludable", "statusProyecto":"Desarrollo"
+},
+{"ID":3,	"nombreProyecto":"Proyecto 3", "tipoProyecto": "SIA","Empresa" :"KHSA" ,"fechaTermino": "23/04/2015","costoOneOff":1600,"costosOneGoing":1000, "saludProyecto":"Critico", "statusProyecto":"Pruebas"
+}
+]

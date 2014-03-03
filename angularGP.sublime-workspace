@@ -1,0 +1,476 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"th",
+				"th	Tag"
+			],
+			[
+				"t",
+				"th	Tag"
+			],
+			[
+				"on",
+				"onerror"
+			],
+			[
+				"inde",
+				"indexedDB"
+			],
+			[
+				"in",
+				"indice"
+			],
+			[
+				"nombre",
+				"nombreApellido"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 865,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/partials/misProyectos.html",
+			"settings":
+			{
+				"buffer_size": 512,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/controllers.js",
+			"settings":
+			{
+				"buffer_size": 414,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/app.js",
+			"settings":
+			{
+				"buffer_size": 422,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/services.js",
+			"settings":
+			{
+				"buffer_size": 189,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/json/proyectos.json",
+			"settings":
+			{
+				"buffer_size": 640,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/XAMPP/xamppfiles/htdocs/app/index.html",
+			"settings":
+			{
+				"buffer_size": 867,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"control",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Commit history"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Git",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/app/partials/phone-list.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/json/proyectos.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/js/filters.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/app/js/services.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/js/services.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/js/directives.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/js/controllers.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/app/js/controllers.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/app/js/app.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/js/app.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/lib/angular/angular-route.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/AngularGP/app/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/Urano/app/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/Urano/app/js/controllers.js",
+		"/Users/mbravo/www/Urano/app/index.html",
+		"/Users/mbravo/Proyectos/Urano/app/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/MiPHP/application/libraries/OpenID.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/index.php",
+		"/Users/mbravo/Proyectos/miCDN/app.yaml",
+		"/Users/mbravo/Desktop/Botones/manifest.json",
+		"/Users/mbravo/Proyectos/oauth_contacts/manifest.json",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/jquery.jsonp.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/manifest.json",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/miDirectorio.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/background.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/almacen.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/main.html",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/variables.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/prueba.html",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/chrome_ex_oauth.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/global.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/js/funciones.js",
+		"/Users/mbravo/Proyectos/Extension-Chrome/p.html",
+		"/Users/mbravo/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/Users/mbravo/Proyectos/Buscador Ofline/js/bootstrap.min.js",
+		"/Users/mbravo/Proyectos/Buscador Ofline/js/bootstrap-typeahead.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"'",
+			"$http",
+			"http",
+			"getScope",
+			"gbsfw",
+			"isGmail",
+			"js",
+			"boot",
+			"onBootTasks",
+			"div2",
+			"getEmail",
+			"returnUrl",
+			"mode",
+			"getSregAttributes",
+			"getAttributes",
+			"authorize",
+			"sign",
+			"signed_url",
+			"ui.item.person"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"",
+			"ui"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/index.html",
+					"settings":
+					{
+						"buffer_size": 865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								630,
+								630
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/partials/misProyectos.html",
+					"settings":
+					{
+						"buffer_size": 512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/js/controllers.js",
+					"settings":
+					{
+						"buffer_size": 414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								239,
+								239
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/js/app.js",
+					"settings":
+					{
+						"buffer_size": 422,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								129,
+								155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/js/services.js",
+					"settings":
+					{
+						"buffer_size": 189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/json/proyectos.json",
+					"settings":
+					{
+						"buffer_size": 640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								639,
+								639
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 7.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Applications/XAMPP/xamppfiles/htdocs/app/index.html",
+					"settings":
+					{
+						"buffer_size": 867,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								468,
+								476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 219.0,
+	"status_bar_visible": true
+}
