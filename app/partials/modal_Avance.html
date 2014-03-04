@@ -1,33 +1,78 @@
 <div class="modal-dialog" id="modalActualizarEstado">
+  <h2> Actualizar Estado Proyecto </h2>
   <form class="form-horizontal" role="form">
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-4 control-label">% Avance</label>
+    <label for="lblAvance" class="col-sm-4 control-label">% Avance</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="% Avance">
+    
+    <input type="text" class="form-control" ng-model="proyecto.avance" placeholder="% Desviacion">
+
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-4 control-label">Comentarios</label>
+    <label for="inputComentario" class="col-sm-4 control-label">Comentarios</label>
     <div class="col-sm-6">
-      <textarea class="form-control" rows="3"></textarea>
+      <textarea ng-model="proyecto.comentario" class="form-control" rows="3"></textarea>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-4 control-label">Etapa del Proyecto</label>
+    <label for="selectSalud" class="col-sm-4 control-label">Salud del Proyecto</label>
     <div class="col-sm-6">
-      <textarea class="form-control" rows="3"></textarea>
+
+<select ng-model="proyecto.saludProyecto">
+    <option
+            ng-repeat="operator in saludProyecto"
+            value="{{operator.value}}">
+      {{operator.nombre}}
+    </option>
+</select>
+
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-4 control-label">Desviacion (%) $</label>
-    <div class="col-sm-6"
-       <input type="text" class="form-control" id="inputEmail3" placeholder="% Avance">
+    <label for="selectEtapa" class="col-sm-4 control-label">Etapa del Proyecto</label>
+    <div class="col-sm-6">
+<select ng-model="proyecto.etapaProyecto">
+    <option
+            ng-repeat="operator in etapaProyecto"
+            value="{{operator.value}}">
+      {{operator.nombre}}
+    </option>
+</select>
+
     </div>
   </div>
+  <div class="form-group">
+    <label for="selectEstado" class="col-sm-4 control-label">Estado del proyecto</label>
+    <div class="col-sm-6">
+      <select ng-model="proyecto.estadoProyecto">
+    <option
+            ng-repeat="operator in estadoProyecto"
+            value="{{operator.value}}">
+      {{operator.nombre}}
+    </option>
+</select>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="txtDesviacion" class="col-sm-4 control-label">Desviacion (%) $</label>
+    <div class="col-sm-6">
+       <input type="text" class="form-control" ng-model="proyecto.desviacionPresupuesto" placeholder="% Desviacion">
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-4 control-label">Desviacion (%) Tiempo</label>
     <div class="col-sm-6">
-       <input type="text" class="form-control" id="inputEmail3" placeholder="% Avance">
+       <input type="text" class="form-control" ng-model="proyecto.desviacionTiempo" placeholder="% Desviacion">
+    </div>
+  </div>
+
+<div class="form-group">
+    <label for="inputEmail3" class="col-sm-4 control-label">Desviacion (%) Alcance</label>
+    <div class="col-sm-6">
+       <input type="text" class="form-control" ng-model="proyecto.desviacionAlcance" placeholder="% Desviacion">
     </div>
   </div>
 
