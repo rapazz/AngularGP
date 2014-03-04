@@ -10,8 +10,8 @@ $http.get('json/proyectos.json').success(function(data) {
      $scope.openDialog=function(){
 
    var modalInstance = $modal.open({
-      templateUrl: 'partials/dialog_template.html',
-      controller: 'ModalInstanceCtrl',
+      templateUrl: 'partials/modal_Avance.html',
+      controller: 'modalActualizarEstado',
       resolve: {
         items: function () {
           return $scope.items;
@@ -23,7 +23,7 @@ $http.get('json/proyectos.json').success(function(data) {
    });
 
   }])
-  .controller('ModalInstanceCtrl', ['$scope','$modalInstance',function($scope, $modalInstance) {
+  .controller('modalActualizarEstado', ['$scope','$modalInstance',function($scope, $modalInstance) {
 
 
 
