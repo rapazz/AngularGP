@@ -47,7 +47,6 @@ $http.get('json/saludProyecto.json').success(function(data) {
 $scope.saludProyecto= data 
 })
 
-
 $http.get('json/etapaProyecto.json').success(function(data) {
 $scope.etapaProyecto= data 
 })
@@ -73,9 +72,16 @@ $scope.estadoProyecto= data
 
 
   }])
-   .controller('modalProgramacion', ['$scope','$modalInstance','$http',function($scope, $modalInstance,$http) {
+   .controller('modalProgramacion', ['$scope','$modalInstance','$http','mesesPlanificiacion',function($scope, $modalInstance,$http,mesesPlanificiacion) {
 
+$scope.meses =mesesPlanificiacion
+$http.get('json/etapaProyecto.json').success(function(data) {
+$scope.etapaProyecto= data 
+})
 
+$http.get('json/programacion.json').success(function(data) {
+$scope.arrProgramacion= data 
+})
 
   $scope.ok = function () {
     $modalInstance.close($scope.selected.item);
