@@ -9,6 +9,7 @@ angular.module('proyectosApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/misProyectos', {templateUrl: 'partials/misProyectos.html', controller: 'MisproyectosCtrl'});
+  $routeProvider.when('/crearProyecto', {templateUrl: 'partials/creacionProyecto.html', controller: 'crearProyectoCtrl'});
   $routeProvider.otherwise({redirectTo: '/misProyectos'});
 }]);
 

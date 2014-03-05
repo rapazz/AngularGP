@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('proyectosAppControllers', ['ui.bootstrap']).
+angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload']).
   controller('MisproyectosCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
 $http.get('json/proyectos.json').success(function(data) {
      $scope.arrProyectos = data;
@@ -92,9 +92,12 @@ $scope.arrProgramacion= data
   };
 
   }])
-  .controller('mainController', ['$scope',function($scope) {
-
+   .controller('crearProyectoCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
+$scope.submitted=false
      $scope.message='HOLA AMOR'
+$http.get('json/empresas.json').success(function(data) {
+$scope.empresa= data 
+})
 
 
 

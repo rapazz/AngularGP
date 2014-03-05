@@ -1,0 +1,117 @@
+ <div class="row">
+          <div class="col-lg-12">
+     
+<h1>Proyectos <small>Creación de Proyectos</small></h1>
+
+  <ol class="breadcrumb">
+              <li><a href="#/Dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <li class="active"><i class="fa fa-table"></i> Creación de Proyecto</li>
+  </ol>
+  
+  </div>
+        </div><!-- /.row -->
+<div  class="row-fluid">
+	<div class="col-lg-12">
+	 <form name="form" class="form-horizontal"  novalidate>
+  <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Nombre del Proyecto</label>
+    <div class="col-lg-6">
+    <input  type="text" name="nombre" class="form-control" ng-model="proyecto.nombre" placeholder="Nombre del Proyecto" required>
+   <span ng-show="submitted && form.nombre.$error.required">Debe Ingresar el Nombre</span>
+   </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Fecha Solicitud</label>
+    <div class="col-lg-3">
+    <input  type="date" name="fechaSolicitud" class="form-control" ng-model="proyecto.fechaSolicitud" placeholder="" required>
+   <span ng-show="submitted && form.nombre.$error.required">Debe Ingresar Fecha</span>
+   </div>
+   <label class="col-lg-2 control-label"  for="lblAvance" >Fecha Estimada Termino</label>
+    <div class="col-lg-3">
+    <input  type="date" name="fechaTermino" class="form-control" ng-model="proyecto.fechaTermino" placeholder="" required>
+   <span ng-show="submitted && form.nombre.$error.required">Debe Ingresar Fecha</span>
+   </div>
+  </div>
+
+ <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Nombre del Solicitante</label>
+    <div class="col-lg-3">
+    <input  type="text" name="nombreSolicitante" class="form-control" ng-model="proyecto.nombreSolicitante" placeholder="Nombre del Solicitante" required>
+   <span ng-show="submitted && form.nombre.$error.required">Debe Ingresar el Nombre</span>
+   </div>
+   <label class="col-lg-2 control-label"  for="lblAvance" >Financiado por</label>
+    <div class="col-lg-3">
+    <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.financiadoPor" placeholder="" required>
+   </div>
+  </div>
+ <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Empresa</label>
+    <div class="col-lg-3">
+    <select ng-model="proyecto.empresa">
+    <option
+            ng-repeat="operator in empresa"
+            value="{{operator.value}}">
+      {{operator.nombre}}
+    </option>
+</select>
+   <span ng-show="submitted && form.nombre.$error.required">Debe Ingresar el Nombre</span>
+   </div>
+   <label class="col-lg-2 control-label"  for="lblAvance" >Area Cliente</label>
+    <div class="col-lg-3">
+    <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.areaCliente" placeholder="" required>
+   </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Tipo de Proyecto</label>
+    <div class="col-lg-8">
+   <select ng-model="proyecto.tipoProyecto">
+    <option value="Operacional">
+           Operacional
+    </option>
+    <option value="Estrategico">
+           Estrategico
+    </option>
+    <option value="Innovación">
+           Innovación
+    </option>
+  </select>
+   </div>
+  </div>
+
+    <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Resumen Ejecutivo</label>
+    <div class="col-lg-8">
+   <textarea ng-model="proyecto.resumenEjecutivo" class="form-control" rows="6"></textarea>
+   </div>
+  </div>
+
+
+    <div class="form-group">
+    <label class="col-lg-2 control-label"  for="lblAvance" >Costos One Off</label>
+    <div class="col-lg-2">
+       <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.costoOneOff" placeholder="" required>
+
+   </div>
+   <label class="col-lg-2 control-label"  for="lblAvance" >Costos One Going</label>
+    <div class="col-lg-2">
+       <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.costoOnGoing" placeholder="" required>
+
+   </div>
+   <label class="col-lg-1 control-label"  for="lblAvance" >Beneficios</label>
+    <div class="col-lg-2">
+       <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.costoOnGoing" placeholder="" required>
+
+   </div>
+  </div>
+
+<div> </div>
+
+ <button type="submit" class="btn btn-primary btn-large" ng-click="submitted=true">Submit</button>
+
+</form>
+
+
+</div>  
+</div> <!-- ROW -->
+
