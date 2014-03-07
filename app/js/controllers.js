@@ -2,6 +2,8 @@
 
 /* Controllers */
 
+
+
 angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload']).
   controller('MisproyectosCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
 $http.get('json/proyectos.json').success(function(data) {
@@ -101,6 +103,6 @@ $scope.empresa= data
 
 
 
-  }]);
-
-
+  }])
+   .controller('dashBoardCtrl', ['$scope','$http','$modal',function($scope,$http,$modal){}
+]);
