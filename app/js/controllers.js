@@ -96,13 +96,24 @@ $scope.arrProgramacion= data
   }])
    .controller('crearProyectoCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
 $scope.submitted=false
-     $scope.message='HOLA AMOR'
-$http.get('json/empresas.json').success(function(data) {
+   $http.get('json/empresas.json').success(function(data) {
 $scope.empresa= data 
 })
 
 
 
   }])
-   .controller('dashBoardCtrl', ['$scope','$http','$modal',function($scope,$http,$modal){}
+   .controller('dashBoardCtrl', ['$scope','$http','$modal','mesesPlanificiacion',function($scope,$http,$modal,mesesPlanificiacion){
+
+   $http.get('json/statusProyecto.json').success(function(data) {
+$scope.arrProyectos= data 
+})
+
+$http.get('json/programacionProyectos.json').success(function(data) {
+$scope.arrProgramacion= data 
+$scope.meses =mesesPlanificiacion
+})
+
+
+   }
 ]);

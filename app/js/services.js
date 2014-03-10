@@ -14,7 +14,7 @@ angular.module('proyectosAppServices', [])
         
         var dateStr ="";
   var dateObj = new Date()
-  var mm =dateObj.getMonth()-1
+  var mm =dateObj.getMonth()
   var ArrMeses =[]
   var meses = mm
   for (var i=0;i<=3;i++)

@@ -9,28 +9,281 @@
         </div><!-- /.row -->
 
 
+<div class="row"> 
+   
+ <div class="col-lg-6">  
+ <div class ="row">
 
-     <div class="panel panel-success">
+   <div class="col-lg-4">
+            <div class="panel panel-success">
               <div class="panel-heading">
-                <h3 class="panel-title">Panel success</h3>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-check-square fa-2x"></i>
+                  </div>
+                  <div class="col-lg-3 text-right">
+                    <p class="announcement-heading">456</p>
+                  </div>
+                </div>
+                  <div class="row">
+                      <div class="col-lg-12 text-right">
+                     <p class="announcement-text">Proyectos Sanos</p>
+                      </div>
+                 </div>
+
+              </div>
+          </div>
+          </div>
+     
+   <div class="col-lg-4">
+            <div class="panel  panel-warning">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa fa-wheelchair fa-2x"></i>
+                  </div>
+                  <div class="col-lg-3 text-right">
+                    <p class="announcement-heading">456</p>
+                 </div> 
+                </div>
+                  <div class="row">
+                      <div class="col-lg-12 text-right">
+                     <p class="announcement-text">Proyectos Alerta</p>
+                       </div>
+                  </div>
+
+              </div>
+          </div>
+          </div>
+
+
+<div class="col-lg-4">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <i class="fa fa-exclamation-triangle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-3 text-right">
+                    <p class="announcement-heading">3</p>
+                  </div>
+                </div>
+                 <div class="row">
+                      <div class="col-lg-12 text-right">
+                     <p class="announcement-text">Proyectos Criticos</p>
+                     </div>
+                  </div>
+
+              </div>           
+           </div>
+</div>
+
+
+   </div><!-- ROW -->
+
+ <!-- FIN ROW -->
+
+
+
+ </div><!--  FIN COL-8 -->
+
+
+
+    <div class="col-lg-6">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title" align="center">Planificacion proximos 4 meses</h3>
               </div>
               <div class="panel-body">
-               
-<table> 
-<thead>
-	<th>
-	 s
-	</th>
-	<th> jjj</th>
+              <div class="row">  
+                <div class="col-lg-3"></div>
+                
+                <div ng-repeat="mes in meses" align="center" class="col-lg-2" ><b>{{mes}}</b></div>
+            
+              </div>
+
+    <div class="row" ng-repeat="row in arrProgramacion">
+    <div class="col-lg-3">
+     {{row.nombreProyecto}}
+    </div>            
+            <div class=" col-lg-9 progress">
+               <div ng-repeat="mes in meses">
+               <span   ng-show="mes == row.mes1"  ng-class='{"progress-bar progress-bar-info":row.estadoMes1=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes1=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes1=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes1=="Producción"}'  style="width: 25%">{{row.estadoMes1}}</span>
+              
+               <span   ng-show="mes == row.mes2"  ng-class='{"progress-bar progress-bar-info":row.estadoMes2=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes2=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes2=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes1=="Producción"}'  style="width: 25%">{{row.estadoMes2}}</span>
+              
+               <span   ng-show="mes == row.mes3"  ng-class='{"progress-bar progress-bar-info":row.estadoMes3=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes3=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes3=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes3=="Producción"}'  style="width: 25%">{{row.estadoMes3}}</span>
+              
+               <span   ng-show="mes == row.mes4"  ng-class='{"progress-bar progress-bar-info":row.estadoMes4=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes4=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes4=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes4=="Producción"}'  style="width: 25%">{{row.estadoMes4}}</span>
+              
+              </div>
+            
+              </div>
+    </div> <!-- fin row programacion -->
+
+   </div>
+ </div>
+  </div>
+
+
+
+   </div><!-- ROW -->
+<div class="row">
+    <div class="col-lg-12">
+<div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"  align="center">Listado de Proyectos</h3>
+              </div>
+              <div class="panel-body">
+   
+
+    <table id="tblMisproyectos" class="table table-bordered table-hover table-striped tablesorter" data-data-table="" data="arrProyectos">
+    <thead>
+<th colspan="2">Nombre Proyecto <i class="fa fa-sort"></i> </th>
+<th>Beneficios <i class="fa fa-sort"></i></th>
+<th>Cost One Off <i class="fa fa-sort"></i></th>
+<th>Cost OnGoing<i class="fa fa-sort"></i></th>
+<th>Desv.$</th>
+<th>Desv. Tiempo </th>
+<th>Desv. Alcance <i class="fa fa-sort"></i></th>
+<th>Tipo<i class="fa fa-sort"></i></th>
+<th>Salud</th>
 </thead>
 <tbody>
-	<tr>
-		<td> q</td<td>4</td>
-	</tr>
+<tr ng-repeat="row in arrProyectos">
+  
+  <td colspan="2">{{row.nombreProyecto}}</td>
+  <td>{{row.beneficios}}</td>
+  <td>{{row.costosOneOff}}</td>
+  <td>{{row.costosOnGoing}}</td>
+  <td>{{row.desviacionPresupuesto}}</td>
+  <td>{{row.desviacionTiempo}}</td>
+  <td>{{row.desviacionAlcance}}</td>
+  <td>{{row.tipoProyecto}}</td>
+<td ></td>
+ </tr>
 </tbody>
-</table> 
+    </table> 
+</div>               </div>
+            </div>
+  </div>
+   <div class="row"> 
 
-
-
+<div class="col-lg-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"  align="center"><i class="fa fa-money"></i> Estatus por tipo de Proyecto</h3>
               </div>
-      </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped tablesorter">
+                    <thead>
+                      <tr>
+                        <th class="header"></th>
+                        <th class="header">Act.</th>
+                        <th class="header">Can.</th>
+                        <th class="header">Post.</th>
+                     
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td ><b>Iniciativas</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                     
+                      </tr>
+                      <tr>
+                        <td ><b>Pre- Evaluación</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                     
+                      </tr>
+                     <tr>
+                        <td ><b>Evaluación</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>      
+                      </tr>
+
+                       <tr>
+                        <td ><b>Desarrollo</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td> 
+                      </tr>
+                       <tr>
+                        <td ><b>En Producción</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+              </div>
+            </div>
+ </div>
+
+
+
+<div class="col-lg-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-money"></i> Auditoria de Proyectos</h3>
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped tablesorter">
+                    <thead>
+                      <tr>
+                        <th class="header">Proceso Interno</th>
+                        <th class="header">AP</th>
+                        <th class="header">RM</th>
+                        <th class="header">Prom. Eq.</th>
+                     
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td ><b>Auditoria</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                     
+                      </tr>
+                      <tr>
+                        <td ><b>Tiempo Pre Eval</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                     
+                      </tr>
+                     <tr>
+                        <td ><b>Tiempo Eval</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>      
+                      </tr>
+
+                       <tr>
+                        <td ><b>Cab</b></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td> 
+                      </tr>
+                     </tbody>
+                  </table>
+                </div>  
+              </div>
+            </div>
+ </div>
+
+
+
+    </div>  <!-- Fin Row --> 
+
+
+
