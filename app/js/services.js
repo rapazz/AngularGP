@@ -10,7 +10,7 @@ angular.module('proyectosAppServices', []).
 
 //Funcion que arma la programacion.
 angular.module('proyectosAppServices', [])
-    .service('mesesPlanificiacion', function () {
+    .service('mesesPlanificacion', function () {
         
         var dateStr ="";
   var dateObj = new Date()
@@ -72,4 +72,5 @@ objMeses.mes4 = ArrMeses[3]
   return ArrMeses
   
         });
+
   

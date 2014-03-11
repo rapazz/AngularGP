@@ -67,16 +67,20 @@ $scope.estadoProyecto= data
   };
 
   }])
-  .controller('mainController', ['$scope',function($scope) {
+  .controller('mainController', ['$scope','$modal',function($scope,$modal) {
 
-  	$scope.$on('event:google-plus-signin-success', function (event, authResult) {
-          // User successfully authorized the G+ App!
-          console.log('Signed in!');
-        });
-        $scope.$on('event:google-plus-signin-failure', function (event, authResult) {
-          // User has not authorized the G+ App!
-          console.log('Not signed into Google Plus.');
-        });
+ var modalInstance = $modal.open({
+      templateUrl: 'partials/login.html',
+      controller: 'modalLogin',
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+
+  	
 
 
 
@@ -110,7 +114,7 @@ $scope.empresa= data
 
 
   }])
-   .controller('dashBoardCtrl', ['$scope','$http','$modal','mesesPlanificiacion',function($scope,$http,$modal,mesesPlanificiacion){
+   .controller('dashBoardCtrl', ['$scope','$http','$modal','mesesPlanificacion',function($scope,$http,$modal,mesesPlanificacion){
 
    $http.get('json/statusProyecto.json').success(function(data) {
 $scope.arrProyectos= data 
@@ -118,9 +122,24 @@ $scope.arrProyectos= data
 
 $http.get('json/programacionProyectos.json').success(function(data) {
 $scope.arrProgramacion= data 
-$scope.meses =mesesPlanificiacion
+$scope.meses =mesesPlanificacion
 })
 
 
    }
+])
+  .controller('loginCtrl', ['$scope','$http', '$window',function($scope,$http, $window) {
+
+    $scope.$on('event:google-plus-signin-success', function (event, authResult) {
+          // User successfully authorized the G+ App!
+          console.log(event);
+         $window.location.href = "#/misProyectos"
+        });
+        $scope.$on('event:google-plus-signin-failure', function (event, authResult) {
+          // User has not authorized the G+ App!
+          console.log('Not signed into Google Plus.');
+        });
+   }
 ]);
+
+

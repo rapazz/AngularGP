@@ -1,3 +1,23 @@
+    <!-- Sidebar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Gestion de Proyectos KCC</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+  <!-- Menu Izquierda  -->
+<menu menus=''></menu>
+          <cabecera></cabecera>
+        </div><!-- /.navbar-collapse -->
+      </nav>
 <div class="row">
           <div class="col-lg-12">
             <h1>DashBoard<small> Panel Proyectos</small></h1>
@@ -89,41 +109,7 @@
 
 
 
-    <div class="col-lg-6">
-      <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title" align="center">Planificacion proximos 4 meses</h3>
-              </div>
-              <div class="panel-body">
-              <div class="row">  
-                <div class="col-lg-3"></div>
-                
-                <div ng-repeat="mes in meses" align="center" class="col-lg-2" ><b>{{mes}}</b></div>
-            
-              </div>
-
-    <div class="row" ng-repeat="row in arrProgramacion">
-    <div class="col-lg-3">
-     {{row.nombreProyecto}}
-    </div>            
-            <div class=" col-lg-9 progress">
-               <div ng-repeat="mes in meses">
-               <span   ng-show="mes == row.mes1"  ng-class='{"progress-bar progress-bar-info":row.estadoMes1=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes1=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes1=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes1=="Producción"}'  style="width: 25%">{{row.estadoMes1}}</span>
-              
-               <span   ng-show="mes == row.mes2"  ng-class='{"progress-bar progress-bar-info":row.estadoMes2=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes2=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes2=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes1=="Producción"}'  style="width: 25%">{{row.estadoMes2}}</span>
-              
-               <span   ng-show="mes == row.mes3"  ng-class='{"progress-bar progress-bar-info":row.estadoMes3=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes3=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes3=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes3=="Producción"}'  style="width: 25%">{{row.estadoMes3}}</span>
-              
-               <span   ng-show="mes == row.mes4"  ng-class='{"progress-bar progress-bar-info":row.estadoMes4=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes4=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes4=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes4=="Producción"}'  style="width: 25%">{{row.estadoMes4}}</span>
-              
-              </div>
-            
-              </div>
-    </div> <!-- fin row programacion -->
-
-   </div>
- </div>
-  </div>
+   
 
 
 
@@ -169,7 +155,44 @@
   </div>
    <div class="row"> 
 
-<div class="col-lg-6">
+ <div class="col-lg-8">
+      <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title" align="center">Planificacion proximos 4 meses</h3>
+              </div>
+              <div class="panel-body">
+              <div class="row">  
+                <div class="col-lg-3"></div>
+                
+                <div ng-repeat="mes in meses" align="center" class="col-lg-2" ><b>{{mes}}</b></div>
+            
+              </div>
+
+    <div class="row" ng-repeat="row in arrProgramacion">
+    <div class="col-lg-4">
+     {{row.nombreProyecto}}
+    </div>            
+            <div class=" col-lg-8 progress">
+               <div ng-repeat="mes in meses">
+               <span   ng-show="mes == row.mes1"  ng-class='{"progress-bar progress-bar-info":row.estadoMes1=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes1=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes1=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes1=="Producción"}'  style="width: 25%">{{row.estadoMes1}}</span>
+              
+               <span   ng-show="mes == row.mes2"  ng-class='{"progress-bar progress-bar-info":row.estadoMes2=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes2=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes2=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes1=="Producción"}'  style="width: 25%">{{row.estadoMes2}}</span>
+              
+               <span   ng-show="mes == row.mes3"  ng-class='{"progress-bar progress-bar-info":row.estadoMes3=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes3=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes3=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes3=="Producción"}'  style="width: 25%">{{row.estadoMes3}}</span>
+              
+               <span   ng-show="mes == row.mes4"  ng-class='{"progress-bar progress-bar-info":row.estadoMes4=="Pre Evaluación","progress-bar progress-bar-success":row.estadoMes4=="Evaluación", "progress-bar progress-bar-warning":row.estadoMes4=="Desarrollo","progress-bar progress-bar-danger":row.estadoMes4=="Producción"}'  style="width: 25%">{{row.estadoMes4}}</span>
+              
+              </div>
+            
+              </div>
+    </div> <!-- fin row programacion -->
+
+   </div>
+ </div>
+  </div>
+
+
+<div class="col-lg-4">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title"  align="center"><i class="fa fa-money"></i> Estatus por tipo de Proyecto</h3>

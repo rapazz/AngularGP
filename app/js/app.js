@@ -5,12 +5,15 @@
 angular.module('proyectosApp', [
   'ngRoute',
   'proyectosAppServices',
-  'proyectosAppControllers'
+  'proyectosAppControllers',
+  'proyectosAppDirective'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/misProyectos', {templateUrl: 'partials/misProyectos.html', controller: 'MisproyectosCtrl'});
   $routeProvider.when('/crearProyecto', {templateUrl: 'partials/creacionProyecto.html', controller: 'crearProyectoCtrl'});
   $routeProvider.when('/dashboard', {templateUrl: 'partials/dashboard.html', controller: 'dashBoardCtrl'});
+  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'loginCtrl'});
+
   $routeProvider.otherwise({redirectTo: '/misProyectos'});
 }]);
 
