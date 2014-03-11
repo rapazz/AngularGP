@@ -4,7 +4,7 @@
 
 
 
-angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload']).
+angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload','directive.g+signin']).
   controller('MisproyectosCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
 $http.get('json/proyectos.json').success(function(data) {
      $scope.arrProyectos = data;
@@ -69,7 +69,14 @@ $scope.estadoProyecto= data
   }])
   .controller('mainController', ['$scope',function($scope) {
 
-  	 $scope.message='HOLA AMOR'
+  	$scope.$on('event:google-plus-signin-success', function (event, authResult) {
+          // User successfully authorized the G+ App!
+          console.log('Signed in!');
+        });
+        $scope.$on('event:google-plus-signin-failure', function (event, authResult) {
+          // User has not authorized the G+ App!
+          console.log('Not signed into Google Plus.');
+        });
 
 
 
