@@ -4,11 +4,11 @@
 
 
 
-angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload','directive.g+signin']).
+angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload']).
   controller('MisproyectosCtrl', ['$scope','$http','$modal',function($scope,$http,$modal) {
 $http.get('json/proyectos.json').success(function(data) {
      $scope.arrProyectos = data;
- 
+
      $scope.openDialog=function(tipo){
 var templateUrl =''
 var controlador = '' 
@@ -67,24 +67,7 @@ $scope.estadoProyecto= data
   };
 
   }])
-  .controller('mainController', ['$scope','$modal',function($scope,$modal) {
 
- var modalInstance = $modal.open({
-      templateUrl: 'partials/login.html',
-      controller: 'modalLogin',
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-
-  	
-
-
-
-  }])
    .controller('modalProgramacion', ['$scope','$modalInstance','$http','mesesPlanificiacion',function($scope, $modalInstance,$http,mesesPlanificiacion) {
 
 $scope.meses =mesesPlanificiacion
@@ -115,7 +98,7 @@ $scope.empresa= data
 
   }])
    .controller('dashBoardCtrl', ['$scope','$http','$modal','mesesPlanificacion',function($scope,$http,$modal,mesesPlanificacion){
-
+$scope.usuario =''
    $http.get('json/statusProyecto.json').success(function(data) {
 $scope.arrProyectos= data 
 })
@@ -128,18 +111,22 @@ $scope.meses =mesesPlanificacion
 
    }
 ])
-  .controller('loginCtrl', ['$scope','$http', '$window',function($scope,$http, $window) {
+  .controller('loginCtrl', ['$scope', 'googleService','$window',function($scope, googleService,$window) {
 
-    $scope.$on('event:google-plus-signin-success', function (event, authResult) {
-          // User successfully authorized the G+ App!
-          console.log(event);
-         $window.location.href = "#/misProyectos"
-        });
-        $scope.$on('event:google-plus-signin-failure', function (event, authResult) {
-          // User has not authorized the G+ App!
-          console.log('Not signed into Google Plus.');
-        });
-   }
-]);
+$scope.login = function () {
+                googleService.login().then(function (data) {
+                    // do something with returned data
+            
+
+                      $window.location.href = "#/dashboard"
+                }, function (err) {
+                    console.log('Failed: ' + err);
+                });
+            };
+
+
+
+   
+   }]);
 
 

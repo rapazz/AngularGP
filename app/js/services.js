@@ -71,6 +71,74 @@ objMeses.mes4 = ArrMeses[3]
 
   return ArrMeses
   
-        });
+        })
+.service('googleService', ['$http', '$rootScope', '$q', function ($http, $rootScope, $q) {
+            var clientId = '831491199430-80elp5cleulr6rc317b0dtbq7ce0ga5p.apps.googleusercontent.com',
+                apiKey = 'f3X4tAwnQhCpZ6Nuy7HPHzTB',
+                scopes = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile',
+                domain = '',
+                deferred = $q.defer();
+ 
+            this.login = function () {
+                gapi.auth.authorize({ 
+                    client_id: clientId, 
+                    scope: scopes, 
+                    immediate: false, 
+                    hd: domain 
+                }, this.handleAuthResult);
+ 
+                return deferred.promise;
+            }
+ 
+            this.handleClientLoad = function () {
+                gapi.client.setApiKey(apiKey);
+                gapi.auth.init(function () { });
+                window.setTimeout(this.checkAuth, 1);
+            };
+ 
+            this.checkAuth = function() {
+                gapi.auth.authorize({ 
+                    client_id: clientId, 
+                    scope: scopes, 
+                    immediate: true, 
+                    hd: domain 
+                }, this.handleAuthResult);
+
+                 return deferred.promise;
+            };
+ 
+            this.handleAuthResult = function(authResult) {
+                if (authResult && !authResult.error) {
+                    var data = {};
+                    gapi.client.load('oauth2', 'v2', function () {
+                        var request = gapi.client.oauth2.userinfo.get();
+                        request.execute(function (resp) {
+                       
+                            data.email = resp.email;
+                            data.nombre =resp.name;
+                        });
+                    });
+                    deferred.resolve(data);
+                } else {
+                    deferred.reject('error');
+                }
+            };
+ this.logOut = function(){
+ gapi.client.load('oauth2', 'v2', function () {
+                        gapi.auth.setToken(null);
+                      })
+
+ }
+            this.handleAuthClick = function(event) {
+                gapi.auth.authorize({ 
+                    client_id: clientId, 
+                    scope: scopes, 
+                    immediate: false, 
+                    hd: domain 
+                }, this.handleAuthResult);
+                return false;
+            };
+ 
+        }]);
 
   

@@ -14,6 +14,6 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/dashboard', {templateUrl: 'partials/dashboard.html', controller: 'dashBoardCtrl'});
   $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'loginCtrl'});
 
-  $routeProvider.otherwise({redirectTo: '/misProyectos'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }]);
 

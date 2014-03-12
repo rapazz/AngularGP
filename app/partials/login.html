@@ -1,9 +1,50 @@
- 
- <div class="modal-dialog" id="modalLogin">
- 	<h3  align="center"> Login a traves de google </h3>
-           <div align="center" ng-app="directive.g+signin">
-  <google-plus-signin clientid="831491199430-80elp5cleulr6rc317b0dtbq7ce0ga5p.apps.googleusercontent.com"></google-plus-signin>
-  <p>Accede a traves de google plus</p>
-</div>
-          </div>
-  </div> 
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">KCC</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Acerca de </a>
+                    </li>
+                    <li><a href="#">Ayuda</a>
+                    </li>
+                    <li><a href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+   <div class="intro-header" id="modalLogin">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Gestión de Proyectos KCC</h1>
+                        <h3>Gerencia IT</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li><button ng-click='login()' class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Login con Google</span></button>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
