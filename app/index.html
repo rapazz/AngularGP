@@ -3,7 +3,7 @@
 <html lang="en" ng-app="proyectosApp">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>Gestion de Proyectos KCC</title>
   <link rel="stylesheet" href="css/app.css"/>
   <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 
 
 
-      <div ng-view id="page-wrapper">
+      <div ui-view id="page-wrapper">
 
       
 
@@ -33,21 +33,31 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+<script src="lib/g+/gapi.js"></script> 
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
   <script src="lib/angular/angular-resource.js"></script>
+ 
+  <script src="lib/angular/angular-resource.js"></script>  
+ 
+<!-- Otras llibrerias -->
+
+ <script src="lib/jquery/jquery-2.1.0.min.js"></script>
+<script src="lib/g+/google-plus-signin.js"></script>
+
+
+
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+      <script src="js/factory.js"></script>
+   <script src="js/constants.js"></script>
    <script src="lib/ng-upload/ng-upload.min.js"></script>
+      <script src="lib/angular-ui/angular-ui-router.js"></script>
 
-<!-- Otras llibrerias -->
-  <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
- <script src="lib/jquery/jquery-2.1.0.min.js"></script>
-<script src="lib/g+/google-plus-signin.js"></script>
-<script src="lib/g+/gapi.js"></script>
+<script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
 
 
 

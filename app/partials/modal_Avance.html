@@ -1,28 +1,28 @@
 <div class="modal-dialog" id="modalActualizarEstado">
   <h2> Actualizar Estado Proyecto </h2>
-  <form class="form-horizontal" role="form">
+  <form  class="form-horizontal" role="form">
   <div class="form-group">
     <label for="lblAvance" class="col-sm-4 control-label">% Avance</label>
     <div class="col-sm-6">
     
-    <input type="text" class="form-control" ng-model="proyecto.avance" placeholder="% Desviacion">
+    <input type="text" class="form-control" name ="proyecto.avance" ng-model="proyecto.avance" placeholder="% Desviacion">
 
     </div>
   </div>
   <div class="form-group">
     <label for="inputComentario" class="col-sm-4 control-label">Comentarios</label>
     <div class="col-sm-6">
-      <textarea ng-model="proyecto.comentario" class="form-control" rows="3"></textarea>
+      <textarea  name ="proyecto.comentario" ng-model="proyecto.comentario" class="form-control" rows="3"></textarea>
     </div>
   </div>
   <div class="form-group">
     <label for="selectSalud" class="col-sm-4 control-label">Salud del Proyecto</label>
     <div class="col-sm-6">
 
-<select ng-model="proyecto.saludProyecto">
+<select  nombre="proyecto.saludProyecto" ng-model="proyecto.saludProyecto">
     <option
             ng-repeat="operator in saludProyecto"
-            value="{{operator.value}}">
+            value="{{operator.id}}">
       {{operator.nombre}}
     </option>
 </select>
@@ -32,10 +32,10 @@
   <div class="form-group">
     <label for="selectEtapa" class="col-sm-4 control-label">Etapa del Proyecto</label>
     <div class="col-sm-6">
-<select ng-model="proyecto.etapaProyecto">
+<select name="proyecto.etapaProyecto" ng-model="proyecto.etapaProyecto">
     <option
             ng-repeat="operator in etapaProyecto"
-            value="{{operator.value}}">
+            value="{{operator.id}}">
       {{operator.nombre}}
     </option>
 </select>
@@ -45,10 +45,10 @@
   <div class="form-group">
     <label for="selectEstado" class="col-sm-4 control-label">Estado del proyecto</label>
     <div class="col-sm-6">
-      <select ng-model="proyecto.estadoProyecto">
+      <select name="proyecto.estadoProyecto" ng-model="proyecto.estadoProyecto">
     <option
             ng-repeat="operator in estadoProyecto"
-            value="{{operator.value}}">
+            value="{{operator.id}}">
       {{operator.nombre}}
     </option>
 </select>
@@ -58,21 +58,21 @@
   <div class="form-group">
     <label for="txtDesviacion" class="col-sm-4 control-label">Desviacion (%) $</label>
     <div class="col-sm-6">
-       <input type="text" class="form-control" ng-model="proyecto.desviacionPresupuesto" placeholder="% Desviacion">
+       <input type="text" class="form-control" name="proyecto.desviacionPresupuesto" ng-model="proyecto.desviacionPresupuesto" placeholder="% Desviacion">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-4 control-label">Desviacion (%) Tiempo</label>
     <div class="col-sm-6">
-       <input type="text" class="form-control" ng-model="proyecto.desviacionTiempo" placeholder="% Desviacion">
+       <input type="text" class="form-control" name = "proyecto.desviacionTiempo" ng-model="proyecto.desviacionTiempo" placeholder="% Desviacion">
     </div>
   </div>
 
 <div class="form-group">
     <label for="inputEmail3" class="col-sm-4 control-label">Desviacion (%) Alcance</label>
     <div class="col-sm-6">
-       <input type="text" class="form-control" ng-model="proyecto.desviacionAlcance" placeholder="% Desviacion">
+       <input type="text" class="form-control" name="proyecto.desviacionAlcance" ng-model="proyecto.desviacionAlcance" placeholder="% Desviacion">
     </div>
   </div>
 
@@ -80,7 +80,7 @@
 
 
     <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" ng-click="actualizarProyecto()">Actualizar</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
         </div>
     </div><!-- /.modal-dialog -->

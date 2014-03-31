@@ -39,27 +39,27 @@
     <thead>
 <th ># <i class="fa fa-sort"></i></th>
 <th>Nombre Proyecto <i class="fa fa-sort"></i> </th>
-<th>Tipo <i class="fa fa-sort"></i></th>
 <th>Empresa <i class="fa fa-sort"></i></th>
 <th>Fecha Termino <i class="fa fa-sort"></i></th>
 <th>One Off </th>
 <th>OnGoing </th>
+<th>Etapa del Proyecto <i class="fa fa-sort"></i></th>
 <th>Salud Proyecto <i class="fa fa-sort"></i></th>
 <th>Status<i class="fa fa-sort"></i></th>
 <th>Controles</th>
 </thead>
 <tbody>
 <tr ng-repeat="row in arrProyectos">
-<td>{{row.ID}} </td>
+<td>{{row.idProyecto}} </td>
 <td>{{row.nombreProyecto}}</td>
-<td>{{row.tipoProyecto}}</td>
-<td>{{row.Empresa}}</td>
+<td>{{row.nombreEmpresa}}</td>
 <td>{{row.fechaTermino}}</td>
-<td>{{row.costoOneOff}}</td>
-<td>{{row.costosOneGoing}}</td>
-<td ><span ng-class='{"label label-warning":row.saludProyecto=="En Alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
+<td>{{row.costoOneoff}}</td>
+<td>{{row.costoOneGoing}}</td>
+    <td>{{row.etapaProyecto}}</td>
+<td ><span ng-class='{"label label-warning":row.saludProyecto=="En alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
 <td>{{row.statusProyecto}}</td>
-<td> <i  class="fa fa-paperclip  fa-lg"> &nbsp</i><i ng-click="openDialog('status')"class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar" ng-click="openDialog('programacion')" ></i></td>
+<td> <i  class="fa fa-paperclip  fa-lg"> &nbsp</i><i ng-click="openDialog(row.idProyecto,'status')"class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar" ng-click="openDialog(row.idProyecto,'programacion')" ></i></td>
 	</tr>
 </tbody>
     </table> 

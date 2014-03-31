@@ -10,6 +10,26 @@ angular.module('proyectosAppServices', []).
 
 //Funcion que arma la programacion.
 angular.module('proyectosAppServices', [])
+.service('Session',['$http', function ($http) {
+  this.create = function (sessionId, userId, userRole,nombre,bP) {
+    this.id = sessionId;
+    this.userId = userId;
+      this.userName = nombre
+    this.userRole = userRole;
+      this.authenticate= true;
+      this.bP=bP;
+      $http.defaults.headers.common['proyectosApp'] =sessionId;
+  };
+
+  this.destroy = function () {
+    this.id = null;
+    this.userId = null;
+    this.userRole = null;
+    this.userName = null;
+      this.authenticate= null;
+  };
+  return this;
+}])
     .service('mesesPlanificacion', function () {
         
         var dateStr ="";
@@ -80,13 +100,14 @@ objMeses.mes4 = ArrMeses[3]
                 deferred = $q.defer();
  
             this.login = function () {
+             
                 gapi.auth.authorize({ 
                     client_id: clientId, 
                     scope: scopes, 
                     immediate: false, 
                     hd: domain 
                 }, this.handleAuthResult);
- 
+
                 return deferred.promise;
             }
  
@@ -97,6 +118,7 @@ objMeses.mes4 = ArrMeses[3]
             };
  
             this.checkAuth = function() {
+
                 gapi.auth.authorize({ 
                     client_id: clientId, 
                     scope: scopes, 
@@ -108,20 +130,24 @@ objMeses.mes4 = ArrMeses[3]
             };
  
             this.handleAuthResult = function(authResult) {
+
                 if (authResult && !authResult.error) {
                     var data = {};
                     gapi.client.load('oauth2', 'v2', function () {
                         var request = gapi.client.oauth2.userinfo.get();
                         request.execute(function (resp) {
-                       
+
                             data.email = resp.email;
                             data.nombre =resp.name;
+                            data.id = resp.id;
                         });
                     });
                     deferred.resolve(data);
                 } else {
                     deferred.reject('error');
                 }
+
+                return deferred.promise;
             };
  this.logOut = function(){
  gapi.client.load('oauth2', 'v2', function () {

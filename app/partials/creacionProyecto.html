@@ -21,7 +21,7 @@
         </div><!-- /.navbar-collapse -->
       </nav>
  <div class="row">
-          <div class="col-lg-12">
+          <div id="mensaje" name="mensaje" class="col-lg-12">
      
 <h1>Proyectos <small>Creación de Proyectos</small></h1>
 
@@ -33,13 +33,15 @@
   </div>
         </div><!-- /.row -->
 <div  class="row-fluid">
+    <div  ng-show="mostrarMensaje" class="alert alert-danger"><b>Ups</b> se encontraron errores en el formulario, por favor revisar</div>
+
 	<div class="col-lg-12">
 	 <form name="form" class="form-horizontal"  novalidate>
-  <div  ng-class="{'form-group has-error': submitted  && form.nombre.$error.required,'form-group ': !(submitted  && form.nombre.$error.required)}">
+  <div  ng-class="{'form-group has-error': submitted  && form.nombreProyecto.$error.required,'form-group ': !(submitted  && form.nombreProyecto.$error.required)}">
     <label class="col-lg-2 control-label"  for="nombre" >Nombre del Proyecto</label>
     <div class="col-lg-6">
-    <input  type="text" name="nombre" class="form-control" ng-model="proyecto.nombre" placeholder="Nombre del Proyecto" required>
-   <span  class="control-label" ng-show="submitted && form.nombre.$error.required">Debe Ingresar el Nombre al Proyecto <span class="fa fa-exclamation-triangle"></span></span>
+    <input  type="text" name="nombreProyecto" class="form-control" ng-model="proyecto.nombreProyecto" placeholder="Nombre del Proyecto" required>
+   <span  class="control-label" ng-show="submitted && form.nombreProyecto.$error.required">Debe Ingresar el Nombre al Proyecto <span class="fa fa-exclamation-triangle"></span></span>
    </div>
   </div>
 
@@ -48,12 +50,12 @@
     <label class="col-lg-2 control-label"  for="fechaSolicitud" >Fecha Solicitud</label>
     <div class="col-lg-3">
     <input  type="date" name="fechaSolicitud" class="form-control" ng-model="proyecto.fechaSolicitud" placeholder="" required>
-   <span ng-show="submitted && form.fechaSolicitud.$error.required" class="control-label">Debe Ingresar Fecha de Solicitud <span class="fa fa-exclamation-triangle"></span>
+   <span ng-show="submitted && form.fechaSolicitud.$error.required" class="control-label">Debe Ingresar Fecha de Solicitud <span class="fa fa-exclamation-triangle"></span></span>
    </div>
    <label class="col-lg-2 control-label"  for="fechaTermino" >Fecha Estimada Termino</label>
     <div class="col-lg-3">
     <input  type="date" name="fechaTermino" class="form-control" ng-model="proyecto.fechaTermino" placeholder="" required>
-   <span class="control-label" ng-show="submitted && form.fechaTermino.$error.required">Debe Ingresar Fecha de Termino  <span class="fa fa-exclamation-triangle"></span>
+   <span class="control-label" ng-show="submitted && form.fechaTermino.$error.required">Debe Ingresar Fecha de Termino  <span class="fa fa-exclamation-triangle"></span></span>
    </div>
   </div>
 
@@ -61,12 +63,12 @@
     <label class="col-lg-2 control-label"  for="nombreSolicitante" >Nombre del Solicitante</label>
     <div  ng-class="{'col-lg-3 has-error': submitted  && form.nombreSolicitante.$error.required,'col-lg-3 ': !(submitted  && form.nombreSolicitante.$error.required)}">
     <input  type="text" name="nombreSolicitante" class="form-control" ng-model="proyecto.nombreSolicitante" placeholder="Nombre del Solicitante" required>
-   <span class="control-label" ng-show="submitted && form.nombreSolicitante.$error.required">Debe Ingresar quien solicito el proyecto <span class="fa fa-exclamation-triangle"></span>
+   <span class="control-label" ng-show="submitted && form.nombreSolicitante.$error.required">Debe Ingresar quien solicito el proyecto <span class="fa fa-exclamation-triangle"></span></span>
    </div>
    <label class="col-lg-2 control-label"  for="financiadoPor" >Financiado por</label>
     <div ng-class="{'col-lg-3 has-error': submitted  && form.financiadoPor.$error.required,'col-lg-3 ': !(submitted  && form.financiadoPor.$error.required)}">
     <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.financiadoPor" placeholder="" required>
-    <span class="control-label" ng-show="submitted && form.financiadoPor.$error.required">Debe Ingresar quien financia el proyecto <span class="fa fa-exclamation-triangle"></span>
+    <span class="control-label" ng-show="submitted && form.financiadoPor.$error.required">Debe Ingresar quien financia el proyecto <span class="fa fa-exclamation-triangle"></span></span>
    </div>
   </div>
 
@@ -76,7 +78,7 @@
     <div ng-class="{'col-lg-3 has-error': submitted  && form.empresa.$error.required,'col-lg-3 ': !(submitted  && form.empresa.$error.required)}" >
     <select name="empresa" ng-model="proyecto.empresa" required>
     <option ng-repeat="operator in empresa"
-            value="{{operator.value}}">
+            value="{{operator.id}}">
       {{operator.nombre}}
     </option>
 </select>
@@ -84,50 +86,70 @@
    </div>
    <label class="col-lg-2 control-label"  for="lblAvance" >Area Cliente</label>
     <div class="col-lg-3">
-    <input  type="text" name="financiadoPor" class="form-control" ng-model="proyecto.areaCliente" placeholder="" required>
+    <input  type="text" name="areaCliente" class="form-control" ng-model="proyecto.areaCliente" placeholder="" >
    </div>
   </div>
 
   <div class="form-group">
     <label class="col-lg-2 control-label"  for="tipoProyecto" >Tipo de Proyecto</label>
-    <div  ng-class="{'col-lg-8 has-error': submitted  && form.tipoProyecto.$error.required,'col-lg-8 ': !(submitted  && form.tipoProyecto.$error.required)}"> 
+    <div  ng-class="{'col-lg-2 has-error': submitted  && form.tipoProyecto.$error.required,'col-lg-2 ': !(submitted  && form.tipoProyecto.$error.required)}">
    <select  name="tipoProyecto" ng-model="proyecto.tipoProyecto" required>
-    <option value="Operacional">
-           Operacional
-    </option>
-    <option value="Estrategico">
-           Estrategico
-    </option>
-    <option value="Innovación">
-           Innovación
-    </option>
+       <option ng-repeat="operator in estrategia"
+               value="{{operator.id}}">
+           {{operator.nombre}}
+       </option>
   </select>
-   <span class="control-label" ng-show="submitted && form.empresa.$error.required">Debe seleccionar el tipo de proyecto  <span class="fa fa-exclamation-triangle"></span></span>
+   <span class="control-label" ng-show="submitted && form.tipoProyecto.$error.required">Debe seleccionar el tipo de proyecto  <span class="fa fa-exclamation-triangle"></span></span>
    </div>
   </div>
+
+         <div class="form-group">
+             <label class="col-lg-2 control-label"  for="etapaProyecto" >Etapa de Proyecto</label>
+             <div  ng-class="{'col-lg-2 has-error': submitted  && form.etapaProyecto.$error.required,'col-lg-2 ': !(submitted  && form.etapaProyecto.$error.required)}">
+                 <select  name="etapaProyecto" ng-model="proyecto.etapaProyecto" required>
+                     <option ng-repeat="operator in etapaProyecto"
+                             value="{{operator.id}}">
+                         {{operator.nombre}}
+                     </option>
+                 </select>
+                 <span class="control-label" ng-show="submitted && form.etapaProyecto.$error.required">Debe seleccionar a etapa del proyecto  <span class="fa fa-exclamation-triangle"></span></span>
+             </div>
+         </div>
+         <div class="form-group">
+             <label class="col-lg-2 control-label"  for="proyecto.saludProyecto" >Salud del Proyecto</label>
+             <div  ng-class="{'col-lg-2 has-error': submitted  && form.saludProyecto.$error.required,'col-lg-2 ': !(submitted  && form.saludProyecto.$error.required)}">
+                 <select  name="saludProyecto" ng-model="proyecto.saludProyecto" required>
+                     <option ng-repeat="operator in saludProyecto"
+                             value="{{operator.id}}">
+                         {{operator.nombre}}
+                     </option>
+                 </select>
+                 <span class="control-label" ng-show="submitted && form.saludProyecto.$error.required">Debe seleccionar la salud del proyecto  <span class="fa fa-exclamation-triangle"></span></span>
+             </div>
+         </div>
 
     <div class="form-group">
     <label class="col-lg-2 control-label"  for="lblAvance" >Resumen Ejecutivo</label>
     <div class="col-lg-8">
-   <textarea ng-model="proyecto.resumenEjecutivo" class="form-control" rows="6"></textarea>
+   <textarea ng-model="proyecto.resumenEjecutivo" nombre="resumenEjecutivo" class="form-control" rows="6"></textarea>
    </div>
   </div>
 
 
     <div class="form-group">
     <label class="col-lg-2 control-label"  for="costoOneOff" >Costos One Off</label>
-    <div   ng-class="{'col-lg-2 has-error': submitted  && form.costoOneOff.$error.required,'col-lg-2 ': !(submitted  && form.costoOneOff.$error.required)}">
+    <div   ng-class="{'col-lg-2 has-error': submitted  && form.proyecto.costoOneOff.$error.required,'col-lg-2 ': !(submitted  && form.proyecto.costoOneOff.$error.required)}">
        <input  type="number" name="costoOneOff" class="form-control" ng-model="proyecto.costoOneOff" placeholder="" required>
  <span class="control-label" ng-show="submitted && form.costoOneOff.$error.required">Debe incorporar el costo One Off <span class="fa fa-exclamation-triangle"></span></span>
  <span class="control-label" ng-show="submitted && form.costoOneOff.$error.number">Debe Incorporar un valor númerico <span class="fa fa-exclamation-triangle"></span></span>
    </div>
    <label class="col-lg-2 control-label"  for="costoOnGoing" >Costos One Going</label>
-    <div ng-class="{'col-lg-2 has-error': submitted  && form.costoOnGoing.$error.required,'col-lg-2 ': !(submitted  && form.costoOnGoing.$error.required)}">
+    <div ng-class="{'col-lg-2 has-error': submitted  && form.proyecto.costoOnGoing.$error.required,'col-lg-2 ': !(submitted  && form.proyecto.costoOnGoing.$error.required)}">
        <input  type="number" name="costoOnGoing" class="form-control" ng-model="proyecto.costoOnGoing" placeholder="" required>
  <span class="control-label" ng-show="submitted && form.costoOnGoing.$error.required">Debe incorporar el Costos One Going <span class="fa fa-exclamation-triangle"></span></span>
    </div>
    <label class="col-lg-1 control-label"  for="beneficios" >Beneficios</label>
-    <div ng-class="{'col-lg-2 has-error': submitted  && form.beneficios.$error.required,'col-lg-2 ': !(submitted  && form.beneficios.$error.required)}">
+    <div ng-class="{'col-lg-2 has-error': submitted  && form.proyecto.beneficios.$error.required,'col-lg-2 ': !(submitted  && form.proyecto.beneficios.$error.required)}">
        <input  type="number" name="beneficios" class="form-control" ng-model="proyecto.beneficios" placeholder="" required>
 <span class="control-label" ng-show="submitted && form.beneficios.$error.required">Debe incorporar los beneficios <span class="fa fa-exclamation-triangle"></span></span>
    </div>
@@ -135,7 +157,7 @@
 
 <div> </div>
 
- <button type="submit" class="btn btn-primary btn-large" ng-click="submitted=true">Crear Proyecto</button>
+ <button type="submit" class="btn btn-primary btn-large" ng-click="crearProyecto()">Crear Proyecto</button>
 
 </form>
 

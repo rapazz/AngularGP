@@ -6,14 +6,37 @@ angular.module('proyectosApp', [
   'ngRoute',
   'proyectosAppServices',
   'proyectosAppControllers',
-  'proyectosAppDirective'
+  'proyectosAppDirective',
+  'proyectosAppConstants',
+  'proyectosAppFactory',
+  'ui.router'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/misProyectos', {templateUrl: 'partials/misProyectos.html', controller: 'MisproyectosCtrl'});
-  $routeProvider.when('/crearProyecto', {templateUrl: 'partials/creacionProyecto.html', controller: 'crearProyectoCtrl'});
-  $routeProvider.when('/dashboard', {templateUrl: 'partials/dashboard.html', controller: 'dashBoardCtrl'});
-  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'loginCtrl'});
-
-  $routeProvider.otherwise({redirectTo: '/login'});
-}]);
-
+config(function($stateProvider, $urlRouterProvider){
+  $stateProvider
+    .state("dashboard", {
+      url: "/dashboard",
+      templateUrl: "partials/dashboard.html",
+      controller: "dashBoardCtrl",
+      authenticate: true
+    })
+    .state("crearProyecto", {
+      url: "/crearProyecto",
+      templateUrl: "partials/creacionProyecto.html",
+      controller: "crearProyectoCtrl",
+      authenticate: true
+    })
+    .state("misProyectos", {
+      url: "/misProyectos",
+      templateUrl: "partials/misProyectos.html",
+      controller: "MisproyectosCtrl",
+      authenticate: true
+    })
+    .state("login", {
+      url: "/login",
+      templateUrl: "partials/login.html",
+      controller: "loginCtrl",
+      authenticate: false
+    });
+  // Send to login if the URL was not found
+  $urlRouterProvider.otherwise("/login");
+});

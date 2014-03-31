@@ -14,22 +14,13 @@ angular.module('proyectosAppDirective', [])
             templateUrl: 'partials/menuIzquierda.html'
         };
     })
-    .directive('cabecera', ['googleService',function(googleService) {
+    .directive('cabecera', ['googleService','Session',function(googleService,Session) {
         return {
             restrict: 'E',
             replace: true,
             
             link: function($scope, $element) {
-               
- googleService.checkAuth().then(function (data) {
-                    // do something with returned data
-                   
-                      $scope.usuario = data.nombre 
-                      console.log(data) 
-                }, function (err) {
-                    console.log('Failed: ' + err);
-                });
-
+               $scope.usuario= Session.userName;
             },
             templateUrl: 'partials/cabecera.html'
         };
