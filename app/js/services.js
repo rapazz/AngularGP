@@ -17,7 +17,7 @@ angular.module('proyectosAppServices', [])
       this.userName = nombre
     this.userRole = userRole;
       this.authenticate= true;
-      this.bP=bP;
+      this.bp;
       $http.defaults.headers.common['proyectosApp'] =sessionId;
   };
 

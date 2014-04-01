@@ -67,7 +67,7 @@ angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload'])
 
 
   }])
-  .controller('modalActualizarEstado', ['$scope','$modalInstance','listaEstados','listaEtapa','listaSalud','USER_EVENT','proyectoApi','idProyecto',function($scope, $modalInstance,listaEstados,listaEtapa,listaSalud,USER_EVENT,proyectoApi,idProyecto) {
+  .controller('modalActualizarEstado', ['$scope','$modalInstance','listaEstados','listaEtapa','listaSalud','USER_EVENT','proyectoApi','proyectoD','idProyecto',function($scope, $modalInstance,listaEstados,listaEtapa,listaSalud,USER_EVENT,proyectoApi,proyectoD,idProyecto) {
         $scope.proyecto ={};
       //   $scope.proyecto.idProyecto =idProyecto;
         listaEstados.get({},function(listaEstados) {
@@ -91,10 +91,25 @@ $scope.estadoProyecto= listaEstados.statusProyecto;
 
 
             }
+
+
+        });
+
+console.log(proyectoD)
+        proyectoD.get({id:idProyecto},function(proyectoD) {
+            if (proyectoD.status==USER_EVENT.Found)
+            {
+
+                $scope.proyecto= proyectoD.proyecto[0];
+                console.log($scope.proyecto)
+
+            }
+
+
         });
 
 
-  $scope.ok = function () {
+        $scope.ok = function () {
     $modalInstance.close($scope.selected.item);
   };
 
@@ -124,9 +139,18 @@ $scope.estadoProyecto= listaEstados.statusProyecto;
 
   }])
 
-   .controller('modalProgramacion', ['$scope','$modalInstance','$http','mesesPlanificacion','ApiListas','USER_EVENT','planificacionApi','idProyecto',function($scope, $modalInstance,$http,mesesPlanificacion,ApiListas,USER_EVENT,planificacionApi,idProyecto) {
+   .controller('modalProgramacion', ['$scope','$modalInstance','$http','mesesPlanificacion','ApiListas','USER_EVENT','planificacionApi','idProyecto','listadoPlanificacion',function($scope, $modalInstance,$http,mesesPlanificacion,ApiListas,USER_EVENT,planificacionApi,idProyecto,listadoPlanificacion) {
 $scope.planificacion = {};
 $scope.meses =mesesPlanificacion
+
+        ApiListas.etapaProyecto.get({},function(ApiListas) {
+            if (ApiListas.status==USER_EVENT.Found)
+            {
+
+               $scope.etapaProyecto= ApiListas.etapaProyecto;
+            }
+        });
+
 
         ApiListas.etapaProyecto.get({},function(ApiListas) {
             if (ApiListas.status==USER_EVENT.Found)
@@ -136,10 +160,21 @@ $scope.meses =mesesPlanificacion
             }
         });
 
+        listadoPlanificacion.get({id:idProyecto},function(listadoPlanificacion) {
+            if (listadoPlanificacion.status==USER_EVENT.Found)
+            {
 
+                $scope.arrProgramacion= listadoPlanificacion.programacion;
+            }
+        });
+
+
+
+/*
         $http.get('json/programacion.json').success(function(data) {
 $scope.arrProgramacion= data 
 })
+*/
 
   $scope.crearPlanificacion = function () {
 
@@ -315,7 +350,7 @@ $scope.login = function () {
                             if (usersLoginRest.status==USER_EVENT.userFound)
                             {
                                 //crear Session de usuario
-                                Session.create(data.id,data.email,usersLoginRest.rol,data.nombre,data.bP)
+                                Session.create(data.id,data.email,usersLoginRest.rol,data.nombre,data.bp)
                                 $state.transitionTo("dashboard");
                             }
                             else

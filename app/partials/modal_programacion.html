@@ -1,9 +1,10 @@
+
 <div class="modal-dialog" id="modalProgramacion">
 <h2>Programacion Actividades</h2>
     <form  class="form-horizontal" role="form">
 
-    <div class="row">
-          <div class="col-lg-12">
+
+          <div >
 <table id="tblProgramacion" class="table table-condensed" data-data-table="" data="arrProgramacion">
 <thead >
 	<th>Linea Base</th>
@@ -11,7 +12,7 @@
 </thead>
 <tbody>
 <tr ng-repeat="row in arrProgramacion" >
-<td>{{row.fecha}} </td>
+<td>{{row.fechacreacion}} </td>
 
 <td ng-repeat="mes in meses" >
 <span ng-show="mes == row.mes1" > {{row.estadoMes1}}  </span>
@@ -64,12 +65,18 @@
 
 </table> 
 
-</div>
-</div> 
 
+
+<!-- aca -->
  <div class="modal-footer">
             <button class="btn btn-primary" ng-click="crearPlanificacion()">OK</button>
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
+          </div>
         </form>
-</div> 
+</div>
+<style>
+    .app-modal-window .modal-dialog {
+        width: 760px;
+    }
+</style>

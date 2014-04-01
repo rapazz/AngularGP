@@ -2,13 +2,19 @@
 
 /* Factory */
 
-var baseUrl = 'http://localhost/~mbravo/gestiondeProyectos/ServicioGP/public';
+var baseUrl = '../../ServicioGP/public';
 
 angular.module('proyectosAppFactory', ['ngResource']).
   value('version', '0.1');
 
 angular.module('proyectosAppFactory', ['ngResource'])
-    .factory('usersLoginRest', ['$resource',
+    .factory('proyectoD', ['$resource',function($resource){
+        return $resource(baseUrl + '/proyecto/:id', { userId: '@Id' }, {
+            query: {method:'GET', params:{}, isArray:true}
+        })
+    }])
+
+.factory('usersLoginRest', ['$resource',
         function($resource){
             return $resource(baseUrl + '/Users/:userId', { userId: '@userId' }, {
                 query: {method:'GET', params:{}, isArray:true}
@@ -85,13 +91,16 @@ angular.module('proyectosAppFactory', ['ngResource'])
         create: { method: 'POST', isArray: false }
 
     })
+    })
 
-
-
-})
-    .factory('planificacionApi', function ($resource) {
-        return $resource(baseUrl + '/proyecto/Planificacion', {}, {
-            query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, isArray: true },
+  .factory('planificacionApi', function ($resource) {
+        return $resource(baseUrl + '/proyecto/Planificacion/', {}, {
+            query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true },
             create: { method: 'POST', isArray: false }
 
         })})
+
+.factory('listadoPlanificacion', function ($resource) {
+    return $resource(baseUrl + '/proyecto/:id/Planificacion/', {id: '@id'}, {
+        query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true }
+    })});

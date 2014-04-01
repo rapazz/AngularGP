@@ -25,4 +25,5 @@ angular.module('proyectosAppDirective', [])
             templateUrl: 'partials/cabecera.html'
         };
     }]);
+
     
