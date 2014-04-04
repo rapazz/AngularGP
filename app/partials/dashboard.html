@@ -132,7 +132,7 @@
 <tbody>
 <tr ng-repeat="row in arrProyectos">
   
-  <td colspan="2" ><span popover="{{ row.comentarioAlcance }}" popover-trigger="mouseenter">{{row.nombreProyecto}}</span></td>
+  <td colspan="2" ><a  href="#/proyecto/{{ row.idProyecto }}">{{row.nombreProyecto}}</a></td>
   <td>{{row.beneficios}}</td>
   <td>{{row.costoOneoff}}</td>
   <td>{{row.costoOneGoing}}</td>
@@ -140,7 +140,7 @@
   <td>{{row.desviacionTiempo}}</td>
   <td>{{row.desviacionAlcance}}</td>
   <td>{{row.estrategiaProyecto}}</td>
-<td ></td>
+<td><span ng-class='{"label label-warning":row.saludProyecto=="En alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
  </tr>
 </tbody>
     </table> 

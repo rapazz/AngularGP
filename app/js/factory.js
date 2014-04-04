@@ -9,9 +9,14 @@ angular.module('proyectosAppFactory', ['ngResource']).
 
 angular.module('proyectosAppFactory', ['ngResource'])
     .factory('proyectoD', ['$resource',function($resource){
-        return $resource(baseUrl + '/proyecto/:id', { userId: '@Id' }, {
-            query: {method:'GET', params:{}, isArray:true}
-        })
+        return {
+            proyecto:$resource(baseUrl + '/proyecto/:id', { userId: '@Id' }, {
+                query: {method:'GET', params:{}, isArray:true}
+            }),
+            planificacion:$resource(baseUrl + '/proyecto/:id/Planificacion/', {id: '@id'}, {
+            query: {method:'GET', params:{}, isArray:true}})
+        }
+
     }])
 
 .factory('usersLoginRest', ['$resource',

@@ -4,10 +4,12 @@
 
 
 
-angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload'])
+angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload'
+        ])
 
     .run(function ($rootScope, $state,Session) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+
       if (toState.authenticate){
         // User isn’t authenticated
        if (Session.authenticate==null){
@@ -21,6 +23,8 @@ angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload'])
     });
   })
   .controller('MisproyectosCtrl', ['$scope','$http','$modal','userProject','Session','USER_EVENT',function($scope,$http,$modal,userProject,Session,USER_EVENT) {
+
+
         userProject.get({userId:Session.userId},function(userProject) {
             if (userProject.status==USER_EVENT.Found)
             {
@@ -40,15 +44,19 @@ angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload'])
                             controlador =  'modalProgramacion'
                             break
                         case 'adjuntos':
-
+                            templateUrl = 'partials/modal_proyecto.html'
+                            controlador =  'modalProyecto'
                             break
                         case 'ver':
+                            templateUrl = 'partials/modal_proyecto.html'
+                            controlador =  'modalProyecto'
 
                             break
                     }
                     var modalInstance = $modal.open({
                         templateUrl: templateUrl,
                         controller: controlador,
+                        windowClass : 'xx-dialog',
                         resolve: {
                             idProyecto: function () {
 
@@ -67,6 +75,8 @@ angular.module('proyectosAppControllers', ['ui.bootstrap','ngUpload'])
 
 
   }])
+
+
   .controller('modalActualizarEstado', ['$scope','$modalInstance','listaEstados','listaEtapa','listaSalud','USER_EVENT','proyectoApi','proyectoD','idProyecto',function($scope, $modalInstance,listaEstados,listaEtapa,listaSalud,USER_EVENT,proyectoApi,proyectoD,idProyecto) {
         $scope.proyecto ={};
       //   $scope.proyecto.idProyecto =idProyecto;
@@ -95,7 +105,7 @@ $scope.estadoProyecto= listaEstados.statusProyecto;
 
         });
 
-console.log(proyectoD)
+
         proyectoD.get({id:idProyecto},function(proyectoD) {
             if (proyectoD.status==USER_EVENT.Found)
             {
@@ -138,6 +148,22 @@ console.log(proyectoD)
     };
 
   }])
+    .controller('modalProyecto', ['$scope','$modalInstance','USER_EVENT','idProyecto','proyectoD',function($scope, $modalInstance,USER_EVENT,idProyecto,proyectoD) {
+        proyectoD.get({id:idProyecto},function(proyectoD) {
+            if (proyectoD.status==USER_EVENT.Found)
+            {
+
+                $scope.proyecto= proyectoD.proyecto;
+
+
+            }
+
+
+        });
+
+
+    }])
+
 
    .controller('modalProgramacion', ['$scope','$modalInstance','$http','mesesPlanificacion','ApiListas','USER_EVENT','planificacionApi','idProyecto','listadoPlanificacion',function($scope, $modalInstance,$http,mesesPlanificacion,ApiListas,USER_EVENT,planificacionApi,idProyecto,listadoPlanificacion) {
 $scope.planificacion = {};
@@ -267,7 +293,36 @@ $scope.mostrarMensaje=true;
 
 
   }])
-   .controller('dashBoardCtrl', ['$scope','$http','$modal','mesesPlanificacion','restDashboard','Session','USER_EVENT',function($scope,$http,$modal,mesesPlanificacion,restDashboard,Session,USER_EVENT){
+    .controller('proyectoCtrl', ['$state','$scope','mesesPlanificacion','Session','USER_EVENT','proyectoD',function($state,$scope,mesesPlanificacion,Session,USER_EVENT,proyectoD){
+
+        proyectoD.proyecto.get({id:$state.params.id},function(proyectoD) {
+            if (proyectoD.status==USER_EVENT.Found)
+            {
+
+                $scope.proyecto= proyectoD.proyecto;
+
+            }
+
+
+        });
+
+        proyectoD.planificacion.get({id:$state.params.id},function(planificacion) {
+
+
+            if (planificacion.status==USER_EVENT.Found)
+            {
+                $scope.arrProgramacion =planificacion.programacion;
+                $scope.meses =mesesPlanificacion
+
+            }
+
+        });
+
+
+    }])
+
+
+        .controller('dashBoardCtrl', ['$scope','$http','$modal','mesesPlanificacion','restDashboard','Session','USER_EVENT',function($scope,$http,$modal,mesesPlanificacion,restDashboard,Session,USER_EVENT){
 
         $scope.pSanos=0;
         $scope.pAlerta = 0;

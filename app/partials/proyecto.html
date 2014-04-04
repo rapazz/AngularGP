@@ -1,0 +1,191 @@
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Gestion de Proyectos KCC</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <!-- Menu Izquierda  -->
+            <menu menus=''></menu>
+            <cabecera></cabecera>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos del Proyecto</h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+               <div class="col-sm-3 "><b>Nombre del Proyecto: </b></div>
+                <div class="col-sm-6 ">:{{ proyecto.nombreProyecto }} </div>
+              </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 "><b>Descripcion del proyecto</b> </div>
+                        <div class="col-sm-6 ">: {{ proyecto.descripcionProyecto }} </div>
+                    </div>
+            <div class="row">
+                <label class="col-sm-3 "><b>Bussines Parther</b></label>
+                <label class="col-sm-3 ">:{{ proyecto.bpProyecto }}</label>
+                <label class="col-sm-3 "><b>Jefe Proyecto</b></label>
+                <label class="col-sm-3 ">:{{ proyecto.jefeProyecto }}</label>
+
+            </div>
+
+                <div class="row">
+
+                    <label class="col-sm-3 "><b>Fecha solicitud</b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.fechaSolicitud }}</label>
+                    <label class="col-sm-3 "><b>Fecha termino</b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.fechaTermino }}</label>
+                </div>
+
+                </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos del solicitante</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <label class="col-sm-3 "><b>Nombre solicitante</b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.nombreSolicitante }}</label>
+                    <label class="col-sm-3 "><b>Empresa</b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.nombreEmpresa }}</label>
+                </div>
+
+                <div class="row">
+                    <label class="col-sm-3"><b>Financiado por </b></label>
+                    <label class="col-sm-3">:{{ proyecto.financiadoPor }}</label>
+                    <label class="col-sm-3 "><b>Area Cliente</b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.areaCliente }}</label>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Avance del Proyecto</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <label class="col-sm-3 "><b>Estatus </b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.estatusProyecto }}</label>
+                    <label class="col-sm-3 "><b> Etapa</b></label>
+                    <label class="col-sm-3 ">:{{ proyecto.etapaProyecto }}</label>
+
+                </div>
+
+                <div class="row">
+
+                    <label class="col-sm-3"><b> Estrategia</b></label>
+                    <label class="col-sm-3">:{{ proyecto.estrategiaProyecto }}</label>
+                    <label class="col-sm-3"><b>Salud</b></label>
+                    <label class="col-sm-3"><span ng-class='{"label label-warning": proyecto.saludProyecto=="En alerta","label label-success": proyecto.saludProyecto=="Saludable","label label-danger": proyecto.saludProyecto=="Critico"}'>{{ proyecto.saludProyecto}}</span></label>
+                </div>
+
+                <div class="row">
+
+                    <label class="col-sm-3 "><b> Comentarios</b></label>
+                    <label class="col-sm-9 ">:{{ proyecto.comentario }}</label>
+                </div>
+
+                <div class="row">
+                    <label class="col-sm-3"><b>Desviacion Presupuesto</b></label>
+                    <label class="col-sm-2 ">:{{ proyecto.desviacionPresupuesto }}</label>
+                    <label class="col-sm-3 "><b>Desviacion Alcance</b></label>
+                    <label class="col-sm-2 ">:{{ proyecto.desviacionAlcance }}</label>
+                    <label class="col-sm-3"><b>Desviacion Tiempo</b></label>
+                    <label class="col-sm-2">:{{ proyecto.desviacionTiempo }}</label>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos Financieros</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <label class="col-sm-2"><b>Costo One Off </b></label>
+                    <label class="col-sm-2">: USD{{ proyecto.costoOneOff }}</label>
+                    <label class="col-sm-2"><b> Costo on Going</b></label>
+                    <label class="col-sm-2">: USD{{ proyecto.costoOnGoing }}</label>
+                    <label class="col-sm-2"><b>Beneficios</b></label>
+                    <label class="col-sm-2">: USD{{ proyecto.beneficios }}</label>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Planificacion proximos 4 meses</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+
+                        <div ng-repeat="mes in meses" align="center" class="col-lg-2" ><b>{{mes}}</b></div>
+
+                    </div>
+
+                    <div class="row" ng-repeat="row in arrProgramacion">
+                        <div class="col-lg-1">
+                          <span ng-show="row.activo==1" class="fa fa-star"></span>
+                        </div>
+                        <div class=" col-lg-8 progress">
+                            <div ng-repeat="mes in meses">
+                                <span   ng-show="mes == row.mes1"  ng-class='{"progress-bar progress-bar-default":row.estadoMes1=="Iniciativa","progress-bar progress-bar-info":row.estadoMes1=="Pre-Evaluacion","progress-bar progress-bar-success":row.estadoMes1=="Evaluacion", "progress-bar progress-bar-warning":row.estadoMes1=="Ejecucion","progress-bar progress-bar-danger":row.estadoMes1=="En produccion"}'  style="width: 25%">{{row.estadoMes1}}</span>
+
+                                <span   ng-show="mes == row.mes2"  ng-class='{"progress-bar progress-bar-default":row.estadoMes2=="Iniciativa","progress-bar progress-bar-info":row.estadoMes2=="Pre-Evaluacion","progress-bar progress-bar-success":row.estadoMes2=="Evaluacion", "progress-bar progress-bar-warning":row.estadoMes2=="Ejecucion","progress-bar progress-bar-danger":row.estadoMes2=="En produccion"}'  style="width: 25%">{{row.estadoMes2}}</span>
+
+                                <span   ng-show="mes == row.mes3"  ng-class='{"progress-bar progress-bar-default":row.estadoMes3=="Iniciativa","progress-bar progress-bar-info":row.estadoMes3=="Pre-Evaluacion","progress-bar progress-bar-success":row.estadoMes3=="Evaluacion", "progress-bar progress-bar-warning":row.estadoMes3=="Ejecucion","progress-bar progress-bar-danger":row.estadoMes3=="En produccion"}'  style="width: 25%">{{row.estadoMes3}}</span>
+
+                                <span   ng-show="mes == row.mes4"  ng-class='{"progress-bar progress-bar-default":row.estadoMes4=="Iniciativa","progress-bar progress-bar-info":row.estadoMes4=="Pre-Evaluacion","progress-bar progress-bar-success":row.estadoMes4=="Evaluacion", "progress-bar progress-bar-warning":row.estadoMes4=="Ejecucion","progress-bar progress-bar-danger":row.estadoMes4=="En produccion"}'  style="width: 25%">{{row.estadoMes4}}</span>
+
+                            </div>
+
+                        </div>
+                    </div> <!-- fin row programacion -->
+
+                </div>
+            </div>
+
+    </div>
+
+  </div>

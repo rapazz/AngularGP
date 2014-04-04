@@ -1,3 +1,9 @@
+<style>
+.xx-dialog .modal-dialog {
+width :1110px;
+min-width: 800px;
+}
+</style>
 <div id="wrapper">
 
       <!-- Sidebar -->
@@ -21,6 +27,16 @@
         </div><!-- /.navbar-collapse -->
       </nav>
 
+
+
+
+
+<!--
+    <div class="ng-pageslide" style="transition: width 0.5s, height; -webkit-transition: width 0.5s, height; z-index: 1000; position: fixed; width: 500px; height: 100%; top: 0px; bottom: 0px; right: 0px;">
+
+        <a id="target-close" href="#">Click to close</a>
+    </div>
+-->
  <div class="row">
           <div class="col-lg-12">
             <h1>Mis Proyectos <small>Proyectos en ejecución</small></h1>
@@ -38,7 +54,7 @@
     <table id="tblMisproyectos" class="table table-bordered table-hover table-striped tablesorter" data-data-table="" data="arrProyectos">
     <thead>
 <th ># <i class="fa fa-sort"></i></th>
-<th>Nombre Proyecto <i class="fa fa-sort"></i> </th>
+<th>Nombre Proyecto<i class="fa fa-sort"></i> </th>
 <th>Empresa <i class="fa fa-sort"></i></th>
 <th>Fecha Termino <i class="fa fa-sort"></i></th>
 <th>One Off </th>
@@ -51,7 +67,7 @@
 <tbody>
 <tr ng-repeat="row in arrProyectos">
 <td>{{row.idProyecto}} </td>
-<td>{{row.nombreProyecto}}</td>
+<td><a  href="#/proyecto/{{ row.idProyecto }}">{{row.nombreProyecto}}</a></td>
 <td>{{row.nombreEmpresa}}</td>
 <td>{{row.fechaTermino}}</td>
 <td>{{row.costoOneoff}}</td>
@@ -64,6 +80,6 @@
 </tbody>
     </table> 
 </div> 
-</div> 
-</div> 
- </div>
+</div>
+
+</div>

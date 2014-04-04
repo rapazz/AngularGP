@@ -1,9 +1,91 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="modal-dialog" id="modalProyecto">
 
-</body>
-</html>
+    <h2> ficha de Proyecto Nº {{ proyecto.id }}</h2>
+<div class="row">
+
+    <div class="form-group">
+    <label class="col-sm-3 control-label"><b>Nombre proyecto:</b></label>
+        <label class="col-sm-9 control-label">proyecto 1</label>
+
+    </div>
+</div>
+<div class="row">
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label"><b>Descripcion</b></label>
+        <label class="col-sm-9 control-label">{{ proyecto.descripcionProyecto }}</label>
+
+    </div>
+</div>
+ <div class="row">
+         <label class="col-sm-3 control-label"><b>Bussines Parther</b></label>
+         <label class="col-sm-3 control-label">{{ proyecto.bpProyecto }}</label>
+     <label class="col-sm-3 control-label"><b>Jefe Proyecto</b></label>
+     <label class="col-sm-3 control-label">{{ proyecto.jefeProyecto }}</label>
+
+ </div>
+    <div class="row">
+
+        <label class="col-sm-3 control-label"><b>Fecha solicitud</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.fechaSolicitud }}</label>
+        <label class="col-sm-3 control-label"><b>Fecha termino</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.fechaTermino }}</label>
+
+
+    </div>
+
+    <div class="row">
+        <label class="col-sm-3 control-label"><b>Nombre solicitante</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.nombreSolicitante }}</label>
+        <label class="col-sm-3 control-label"><b>Empresa</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.nombreEmpresa }}</label>
+
+    </div>
+
+    <div class="row">
+        <label class="col-sm-3 control-label"><b>Financiado por </b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.financiadoPor }}</label>
+        <label class="col-sm-3 control-label"><b>Area Cliente</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.areaCliente }}</label>
+
+    </div>
+
+    <div class="row">
+        <label class="col-sm-3 control-label"><b>Costo One Off </b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.costoOneOff }}</label>
+        <label class="col-sm-3 control-label"><b> Costo on Going</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.costoOnGoing }}</label>
+        <label class="col-sm-3 control-label"><b>Beneficios</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.beneficios }}</label>
+    </div>
+    <div class="row">
+        <label class="col-sm-3 control-label"><b>Estatus </b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.estatusProyecto }}</label>
+        <label class="col-sm-3 control-label"><b> Etapa</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.etapaProyecto }}</label>
+        <label class="col-sm-3 control-label"><b>Salud</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.saludProyecto }}</label>
+    </div>
+    <div class="row">
+
+        <label class="col-sm-3 control-label"><b> Estrategia</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.estrategiaProyecto }}</label>
+        <label class="col-sm-3 control-label"><b>Salud</b></label>
+        <label class="col-sm-3 control-label">{{ proyecto.saludProyecto }}</label>
+    </div>
+    <div class="row">
+
+        <label class="col-sm-3 control-label"><b> comentarios</b></label>
+        <label class="col-sm-9 control-label">{{ proyecto.comentario }}</label>
+     </div>
+</div>
+<div class="row">
+    <label class="col-sm-3 control-label"><b> Desviacion P</b></label>
+    <label class="col-sm-3 control-label">{{ proyecto.desviacionPresupuesto }}</label>
+    <label class="col-sm-3 control-label"><b>Desviacion alcance</b></label>
+    <label class="col-sm-3 control-label">{{ proyecto.desviacionAlcance }}</label>
+    <label class="col-sm-3 control-label"><b>Desviacion tiempo</b></label>
+    <label class="col-sm-3 control-label">{{ proyecto.desviacionTiempo }}</label>
+</div>
+
+    </div>

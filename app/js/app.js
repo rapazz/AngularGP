@@ -10,6 +10,7 @@ angular.module('proyectosApp', [
   'proyectosAppConstants',
   'proyectosAppFactory',
   'ui.router'
+
 ]).
 config(function($stateProvider, $urlRouterProvider){
   $stateProvider
@@ -36,7 +37,15 @@ config(function($stateProvider, $urlRouterProvider){
       templateUrl: "partials/login.html",
       controller: "loginCtrl",
       authenticate: false
-    });
+    })
+
+      .state("proyecto", {
+          url: "/proyecto/:id",
+          templateUrl: "partials/proyecto.html",
+          controller: "proyectoCtrl",
+          authenticate: true
+      });
+
   // Send to login if the URL was not found
   $urlRouterProvider.otherwise("/login");
 });
