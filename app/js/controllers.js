@@ -106,11 +106,11 @@ $scope.estadoProyecto= listaEstados.statusProyecto;
         });
 
 
-        proyectoD.get({id:idProyecto},function(proyectoD) {
+        proyectoD.proyecto.get({id:idProyecto},function(proyectoD) {
             if (proyectoD.status==USER_EVENT.Found)
             {
 
-                $scope.proyecto= proyectoD.proyecto[0];
+                $scope.proyecto= proyectoD.proyecto;
                 console.log($scope.proyecto)
 
             }

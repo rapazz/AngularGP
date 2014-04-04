@@ -92,9 +92,9 @@ objMeses.mes4 = ArrMeses[3]
   return ArrMeses
   
         })
-.service('googleService', ['$http', '$rootScope', '$q', function ($http, $rootScope, $q) {
-            var clientId = '831491199430-80elp5cleulr6rc317b0dtbq7ce0ga5p.apps.googleusercontent.com',
-                apiKey = 'f3X4tAwnQhCpZ6Nuy7HPHzTB',
+.service('googleService', ['$http', '$rootScope', '$q','CONFIG', function ($http, $rootScope, $q,CONFIG) {
+            var clientId = CONFIG.clientId,
+                apiKey = CONFIG.apiKey,
                 scopes = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile',
                 domain = '',
                 deferred = $q.defer();

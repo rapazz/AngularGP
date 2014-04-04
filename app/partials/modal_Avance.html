@@ -19,7 +19,7 @@
     <label for="selectSalud" class="col-sm-4 control-label">Salud del Proyecto</label>
     <div class="col-sm-6">
 
-<select  nombre="proyecto.saludProyecto" ng-model="proyecto.saludProyecto">
+<select  nombre="proyecto.idSaludProyecto" ng-model="proyecto.idSaludProyecto">
     <option
             ng-repeat="operator in saludProyecto"
             value="{{operator.id}}">
@@ -32,7 +32,7 @@
   <div class="form-group">
     <label for="selectEtapa" class="col-sm-4 control-label">Etapa del Proyecto</label>
     <div class="col-sm-6">
-<select name="proyecto.etapaProyecto" ng-model="proyecto.etapaProyecto">
+<select name="proyecto.idEtapaProyecto" ng-model="proyecto.idEtapaProyecto">
     <option
             ng-repeat="operator in etapaProyecto"
             value="{{operator.id}}">
@@ -45,7 +45,7 @@
   <div class="form-group">
     <label for="selectEstado" class="col-sm-4 control-label">Estado del proyecto</label>
     <div class="col-sm-6">
-      <select name="proyecto.estadoProyecto" ng-model="proyecto.estadoProyecto">
+      <select name="proyecto.idStatusProyecto" ng-model="proyecto.idStatusProyecto">
     <option
             ng-repeat="operator in estadoProyecto"
             value="{{operator.id}}">
