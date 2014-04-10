@@ -117,28 +117,28 @@
               <div class="panel-body">
    
 
-    <table id="tblMisproyectos" class="table table-bordered table-hover table-striped tablesorter" data-data-table="" data="arrProyectos">
+    <table id="tblMisproyectos" class="table table-bordered table-hover" data-data-table="" data="arrProyectos">
     <thead>
-<th colspan="2">Nombre Proyecto <i class="fa fa-sort"></i> </th>
-<th>Beneficios <i class="fa fa-sort"></i></th>
-<th>Cost One Off <i class="fa fa-sort"></i></th>
-<th>Cost OnGoing<i class="fa fa-sort"></i></th>
-<th>Desv.$</th>
-<th>Desv. Tiempo </th>
-<th>Desv. Alcance <i class="fa fa-sort"></i></th>
-<th>Tipo<i class="fa fa-sort"></i></th>
-<th>Salud</th>
+<th colspan="2" ng-click="changeSorting('nombreProyecto')">Nombre Proyecto </th>
+<th ng-click="changeSorting('beneficios')">Beneficios</th>
+<th ng-click="changeSorting('costoOneOff')">Cost One Off</th>
+<th ng-click="changeSorting('costoOnGoing')">Cost OnGoing</th>
+<th ng-click="changeSorting('desviacionPresupuesto')">Desv.$</th>
+<th ng-click="changeSorting('desviacionTiempo')">Desv. Tiempo</th>
+<th ng-click="changeSorting('desviacionAlcance')">Desv. Alcance</th>
+<th ng-click="changeSorting('estrategiaProyecto')">Tipo</th>
+<th ng-click="changeSorting('saludProyecto')">Salud</th>
 </thead>
 <tbody>
-<tr ng-repeat="row in arrProyectos">
+<tr ng-repeat="row in arrProyectos | orderBy:sortListadoBP.column:sortListadoBP.descending ">
   
   <td colspan="2" ><a  href="#/proyecto/{{ row.idProyecto }}">{{row.nombreProyecto}}</a></td>
   <td>{{row.beneficios}}</td>
   <td>{{row.costoOneoff}}</td>
   <td>{{row.costoOneGoing}}</td>
-  <td>{{row.desviacionPresupuesto}}</td>
-  <td>{{row.desviacionTiempo}}</td>
-  <td>{{row.desviacionAlcance}}</td>
+  <td>{{row.desviacionPresupuesto}}%</td>
+  <td>{{row.desviacionTiempo}}%</td>
+  <td>{{row.desviacionAlcance}}%</td>
   <td>{{row.estrategiaProyecto}}</td>
 <td><span ng-class='{"label label-warning":row.saludProyecto=="En alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
  </tr>

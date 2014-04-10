@@ -1,0 +1,57 @@
+<div class="modal-dialog" id="modalAdjunto">
+
+
+<div cass ="row">
+    <div class="form-group">
+        <label  class="col-lg-1 control-label" >Tipo</label>
+        <select class="col-lg-3 control-label" name="adjunto.tipoAdjunto" ng-model="adjunto.tipoAdjunto">
+            <option
+                    ng-repeat="operator in tipoAdjunto"
+                    value="{{operator.id}}">
+                {{operator.nombre}}
+            </option>
+        </select>
+    <label  class="col-lg-2 control-label" >Nombre </label>
+    <input  class="col-lg-4 control-label" type="text"  name="descripcion" ng-model="adjunto.descripcion" placeholder="descripcion">
+</div>
+
+</div>
+    <div class="row">
+
+<br>
+<br>
+        <div class="form-group">
+        <label class="col-lg-2 control-label">&nbsp;Archivo </label>
+        <input ng-disabled="deshabilitarControl()"  class="col-lg-6 control-label"  type="file" ng-file-select="onFileSelect($files)"  >
+
+</div>
+    </div>
+
+    <div class="row">
+        <br>
+        <br>
+        <div class="col-lg-10">
+        <table id="tblMisproyectos" class="table" data-data-table="" data="arrProyectos">
+            <thead>
+            <th colspan="2">Nombre</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+        </thead>
+            <tbody>
+            <tr ng-repeat="row in arrAnexos ">
+            <td colspan="2"><a href="{{ row.url }}"  target="_blank">{{ row.nombre }}</a> </td>
+            <td>{{ row.tipo }}</td>
+            <td></td>
+        </tr>
+
+            </tbody>
+
+
+</table>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+
+</div>

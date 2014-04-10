@@ -1,9 +1,4 @@
-<style>
-.xx-dialog .modal-dialog {
-width :1110px;
-min-width: 800px;
-}
-</style>
+
 <div id="wrapper">
 
       <!-- Sidebar -->
@@ -53,19 +48,19 @@ min-width: 800px;
 
     <table id="tblMisproyectos" class="table table-bordered table-hover table-striped tablesorter" data-data-table="" data="arrProyectos">
     <thead>
-<th ># <i class="fa fa-sort"></i></th>
-<th>Nombre Proyecto<i class="fa fa-sort"></i> </th>
-<th>Empresa <i class="fa fa-sort"></i></th>
-<th>Fecha Termino <i class="fa fa-sort"></i></th>
-<th>One Off </th>
-<th>OnGoing </th>
-<th>Etapa del Proyecto <i class="fa fa-sort"></i></th>
-<th>Salud Proyecto <i class="fa fa-sort"></i></th>
-<th>Status<i class="fa fa-sort"></i></th>
+<th ng-click="changeSorting('idProyecto')"># </th>
+<th ng-click="changeSorting('nombreProyecto')">Nombre Proyecto </th>
+<th ng-click="changeSorting('nombreEmpresa')">Empresa </th>
+<th ng-click="changeSorting('fechaTermino')">Fecha Termino</th>
+<th ng-click="changeSorting('costoOneoff')">One Off </th>
+<th ng-click="changeSorting('costoOneGoing')">OnGoing </th>
+<th ng-click="changeSorting('etapaProyecto')">Etapa del Proyecto </th>
+<th ng-click="changeSorting('saludProyecto')">Salud Proyecto </th>
+<th ng-click="changeSorting('statusProyecto')">Status</th>
 <th>Controles</th>
 </thead>
 <tbody>
-<tr ng-repeat="row in arrProyectos">
+<tr ng-repeat="row in arrProyectos| orderBy:sortListado.column:sortListado.descending ">
 <td>{{row.idProyecto}} </td>
 <td><a  href="#/proyecto/{{ row.idProyecto }}">{{row.nombreProyecto}}</a></td>
 <td>{{row.nombreEmpresa}}</td>
@@ -75,7 +70,7 @@ min-width: 800px;
     <td>{{row.etapaProyecto}}</td>
 <td ><span ng-class='{"label label-warning":row.saludProyecto=="En alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
 <td>{{row.statusProyecto}}</td>
-<td> <i  class="fa fa-paperclip  fa-lg"> &nbsp</i><i ng-click="openDialog(row.idProyecto,'status')"class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar" ng-click="openDialog(row.idProyecto,'programacion')" ></i></td>
+<td> <i  class="fa fa-paperclip  fa-lg" ng-click="openDialog(row.idProyecto,'adjuntos')"> &nbsp</i><i ng-click="openDialog(row.idProyecto,'status')"class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar" ng-click="openDialog(row.idProyecto,'programacion')" ></i></td>
 	</tr>
 </tbody>
     </table> 

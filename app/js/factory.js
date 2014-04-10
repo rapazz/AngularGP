@@ -86,6 +86,9 @@ angular.module('proyectosAppFactory', ['ngResource'])
                 }),
                 saludProyecto: $resource(baseUrl + '/listas/salud', {  }, {
                     query: {method:'GET', params:{}, isArray:true}
+                }),
+                tipoAdjunto: $resource(baseUrl + '/listas/tipoAdjunto', {  }, {
+                    query: {method:'GET', params:{}, isArray:true}
                 })
             }
         }])
@@ -107,5 +110,10 @@ angular.module('proyectosAppFactory', ['ngResource'])
 
 .factory('listadoPlanificacion', function ($resource) {
     return $resource(baseUrl + '/proyecto/:id/Planificacion/', {id: '@id'}, {
+        query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true }
+    })})
+
+.factory('listadoAnexos', function ($resource) {
+    return $resource(baseUrl + '/proyecto/:id/file/', {id: '@id'}, {
         query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true }
     })});
