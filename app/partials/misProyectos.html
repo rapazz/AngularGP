@@ -1,4 +1,9 @@
-
+<style>
+.xx-dialog .modal-dialog {
+width :1110px;
+min-width: 800px;
+}
+</style>
 <div id="wrapper">
 
       <!-- Sidebar -->
@@ -70,11 +75,13 @@
     <td>{{row.etapaProyecto}}</td>
 <td ><span ng-class='{"label label-warning":row.saludProyecto=="En alerta","label label-success":row.saludProyecto=="Saludable","label label-danger":row.saludProyecto=="Critico"}'>{{row.saludProyecto}}</span></td>
 <td>{{row.statusProyecto}}</td>
-<td> <i  class="fa fa-paperclip  fa-lg" ng-click="openDialog(row.idProyecto,'adjuntos')"> &nbsp</i><i ng-click="openDialog(row.idProyecto,'status')"class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar" ng-click="openDialog(row.idProyecto,'programacion')" ></i></td>
+<td> <i  class="fa fa-paperclip  fa-lg" > &nbsp</i><i ng-click="openDialog(row.idProyecto,'status')"class="fa fa-pencil-square-o fa-lg">&nbsp</i> <i class="fa fa-calendar" ng-click="openDialog(row.idProyecto,'programacion')" ></i>
+    <i class="fa fa fa-money" ng-click="openDialog(row.idProyecto,'gastos')" ></i>
+</td>
 	</tr>
 </tbody>
-    </table> 
-</div> 
+    </table>
+</div>
 </div>
 
 </div>

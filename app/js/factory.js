@@ -8,49 +8,17 @@ angular.module('proyectosAppFactory', ['ngResource']).
   value('version', '0.1');
 
 angular.module('proyectosAppFactory', ['ngResource'])
-    .factory('proyectoD', ['$resource',function($resource){
-        return {
-            proyecto:$resource(baseUrl + '/proyecto/:id', { userId: '@Id' }, {
-                query: {method:'GET', params:{}, isArray:true}
-            }),
-            planificacion:$resource(baseUrl + '/proyecto/:id/Planificacion/', {id: '@id'}, {
-            query: {method:'GET', params:{}, isArray:true}})
-        }
 
-    }])
 
 .factory('usersLoginRest', ['$resource',
         function($resource){
             return $resource(baseUrl + '/Users/:userId', { userId: '@userId' }, {
-                query: {method:'GET', params:{}, isArray:true}
+                query: {method:'GET',headers:{},params:{}, isArray:true}
             });
         }])
-    .factory('userProject', ['$resource',
-        function($resource){
-    return $resource(baseUrl + '/:userId/Proyectos', { userId: '@userId' }, {
-        query: {method:'GET', params:{}, isArray:true}
-    });
-}])
-    .factory('listaEstados', ['$resource',
-        function($resource){
-            return $resource(baseUrl + '/listas/statusProyecto', {  }, {
-                query: {method:'GET', params:{}, isArray:true}
-            });
-        }])
-    .factory('listaEtapa', ['$resource',
-        function($resource){
-            return $resource(baseUrl + '/listas/etapaProyecto', {  }, {
-                query: {method:'GET', params:{}, isArray:true}
-            });
-        }])
-    .factory('listaSalud', ['$resource',
-        function($resource){
-            return $resource(baseUrl + '/listas/salud', {  }, {
-                query: {method:'GET', params:{}, isArray:true}
-            });
-        }])
-    .factory('restDashboard', ['$resource',
-    function($resource){
+
+.factory('restDashboard', ['$resource',
+         function($resource){
         return {
             porSalud:$resource(baseUrl + '/:userId/Proyectos/Salud', { userId: '@userId' }, {
             query: {method:'GET', params:{}, isArray:true}}),
@@ -65,19 +33,16 @@ angular.module('proyectosAppFactory', ['ngResource'])
         }
 
     }])
-   .factory('proyectoApi', function ($resource) {
-    return $resource(baseUrl + '/proyecto/avance/:id', {"id": '@id'}, {
-        query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, isArray: true },
-        create: { method: 'POST', isArray: false }
 
-    })
-})
-    .factory('ApiListas', ['$resource',
+.factory('ApiListas', ['$resource',
         function($resource){
             return {
              Empresas: $resource(baseUrl +'/listas/empresa', {  }, {
                 query: {method:'GET', params:{}, isArray:true}
             }),
+              statusProyecto:$resource(baseUrl + '/listas/statusProyecto', {  }, {
+                    query: {method:'GET', params:{}, isArray:true}
+                }),
              tipoEstrategia: $resource(baseUrl +'/listas/estrategiaProyecto', {  }, {
                 query: {method:'GET', params:{}, isArray:true}
             }),
@@ -93,27 +58,10 @@ angular.module('proyectosAppFactory', ['ngResource'])
             }
         }])
 
-.factory('proyectoA', function ($resource) {
-    return $resource(baseUrl + '/proyecto', {}, {
-        query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, isArray: true },
-        create: { method: 'POST', isArray: false }
 
-    })
-    })
-
-  .factory('planificacionApi', function ($resource) {
-        return $resource(baseUrl + '/proyecto/Planificacion/', {}, {
-            query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true },
-            create: { method: 'POST', isArray: false }
-
-        })})
-
-.factory('listadoPlanificacion', function ($resource) {
-    return $resource(baseUrl + '/proyecto/:id/Planificacion/', {id: '@id'}, {
-        query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true }
-    })})
 
 .factory('listadoAnexos', function ($resource) {
     return $resource(baseUrl + '/proyecto/:id/file/', {id: '@id'}, {
         query: { method: 'GET',headers: {'Content-Type': 'application/x-www-form-urlencoded'}, params:{}, isArray: true }
-    })});
+    })})
+

@@ -9,9 +9,12 @@ angular.module('proyectosApp', [
   'proyectosAppDirective',
   'proyectosAppConstants',
   'proyectosAppFactory',
-  'ui.router'
+  'ui.router',
+   'modelProvider'
 
 ]).
+
+//configuracion de menu y permisos asociados,
 config(function($stateProvider, $urlRouterProvider){
   $stateProvider
     .state("dashboard", {
@@ -44,8 +47,17 @@ config(function($stateProvider, $urlRouterProvider){
           templateUrl: "partials/proyecto.html",
           controller: "proyectoCtrl",
           authenticate: true
-      });
+      })
 
-  // Send to login if the URL was not found
-  $urlRouterProvider.otherwise("/login");
+      .state("prueba", {
+          url: "/prueba",
+          templateUrl: "partials/prueba.html",
+          controller: "pruebaCtrl",
+          authenticate: false
+      })
+
+
+
+  // Send to dashboard if the URL was not found
+  $urlRouterProvider.otherwise("/dashboard");
 });

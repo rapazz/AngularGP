@@ -1,0 +1,65 @@
+<div class="modal-dialog" id="modalGastos">
+    <h2> Oc  y Hes asociadas al Proyecto </h2>
+    <form  class="form-horizontal" role="form">
+
+<table class="table table-bordered table-hover table-striped tablesorter">
+   <thead>
+   <th class="col-sm-1">Tipo</th>
+   <th class="col-sm-1">Fecha Ingreso</th>
+   <th class="col-sm-2">Numero</th>
+   <th class="col-sm-2">Valor</th>
+   <th class="col-sm-3">Comentario</th>
+   <th  class="col-sm-1">Acciones</th>
+
+   </thead>
+ <tr>
+ <td>
+
+     <select name= "tipo" ng-model="gasto.tipo">
+         <option
+                 value="OC">
+             OC
+         </option>
+         <option
+                 value="HES">
+             HES
+         </option>
+     </select>
+ </td>
+ <td><input  type="date" name="fechaCreacion" class="form-control" ng-model="gasto.fechaCreacion" placeholder="" required></td>
+     <td><input  type="number" name="numero" class="form-control" ng-model="gasto.numero" placeholder="" required></td>
+
+     <td><input  type="number" name="valor" class="form-control" ng-model="gasto.valor" placeholder="" required></td>
+
+     <td><textarea ng-model="gasto.comentario" nombre="comentario" class="form-control" rows="1"></textarea>
+ </td>
+ <td><button ng-click="agregar()" class="">A</button> </td>
+ </tr>
+
+  <tr ng-repeat="object in gastos">
+    <td>{{ object.tipo }} </td>
+    <td>{{ object.fechaCreacion }}</td>
+    <td>{{ object.numero }}</td>
+    <td>{{ object.valor }}</td>
+    <td>{{ object.comentario }} </td>
+    <td><button ng-click="editar(object)" class="">M</button> <button ng-click="eliminar(object)" class="">E</button></td>
+
+    </tr>
+
+ <tfoot>
+ <tr>
+ <td colspan="4" > </td>
+ <td colspan="2" ><b>Total: {{ totalGasto() }} </b></td>
+ </tr>
+ </tfoot>
+
+</table>
+
+    </form>
+
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="actualizarProyecto()">Actualizar</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+    </div>
+</div><!-- /.modal-dialog -->

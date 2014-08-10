@@ -17,6 +17,8 @@ angular.module('proyectosAppConstants', [])
     })
     .constant('CONFIG',{
         clientId:'831491199430-80elp5cleulr6rc317b0dtbq7ce0ga5p.apps.googleusercontent.com',
-        apiKey:'f3X4tAwnQhCpZ6Nuy7HPHzTB'
+        apiKey:'f3X4tAwnQhCpZ6Nuy7HPHzTB',
+        version:'0,5'
 
     });
+

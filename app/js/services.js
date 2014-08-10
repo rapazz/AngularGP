@@ -11,14 +11,18 @@ angular.module('proyectosAppServices', []).
 //Funcion que arma la programacion.
 angular.module('proyectosAppServices', [])
 .service('Session',['$http', function ($http) {
-  this.create = function (sessionId, userId, userRole,nombre,bP) {
+  this.create = function (sessionId, userId, userRole,nombre,bP,token,tokenKey) {
     this.id = sessionId;
     this.userId = userId;
       this.userName = nombre
     this.userRole = userRole;
       this.authenticate= true;
-      this.bp;
-      $http.defaults.headers.common['proyectosApp'] =sessionId;
+      this.bp=bP;
+      $http.defaults.headers.delete = {};
+      $http.defaults.headers.common['token'] =token;
+      $http.defaults.headers.common['tokenKey'] =tokenKey;
+      console.log( this.tokenKey)
+
   };
 
   this.destroy = function () {
@@ -140,6 +144,7 @@ objMeses.mes4 = ArrMeses[3]
                             data.email = resp.email;
                             data.nombre =resp.name;
                             data.id = resp.id;
+                            data.token =gapi.auth.getToken();
                         });
                     });
                     deferred.resolve(data);
